@@ -1,0 +1,86 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: John 2309292099@qq.com, 1, LIC=GMZI6-DFMID-IIS5V-PHBPP-Z4PUL-SKSC5
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.31.0.0
+Toolchain Path:  D:\Programs\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      CMSIS_AGDI.dll V1.32.6.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+D:\STM32_Projects\Third_Points_Race_sanziqi\MDK-ARM\Third_Points_Race_sanziqi.uvprojx
+Project File Date:  05/18/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Programs\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Third_Points_Race_sanziqi'
+compiling control.c...
+..\USER\C\control.c(73): warning:  #223-D: function "control_t" declared implicitly
+     control_t(start.x, start.y);
+..\USER\C\control.c(79): warning:  #223-D: function "Servo_Down" declared implicitly
+     Servo_Down();
+..\USER\C\control.c(80): warning:  #223-D: function "Magnet_On" declared implicitly
+     Magnet_On();
+..\USER\C\control.c(83): warning:  #223-D: function "Servo_Up" declared implicitly
+     Servo_Up();
+..\USER\C\control.c(96): warning:  #223-D: function "Magnet_Off" declared implicitly
+     Magnet_Off();
+..\USER\C\control.c(100): warning:  #223-D: function "control_to_zero" declared implicitly
+     control_to_zero();
+..\USER\C\control.c(112): error:  #159: declaration is incompatible with previous "control_t"  (declared at line 73)
+  void control_t(uint32_t x_distance,uint32_t y_distance){
+..\USER\C\control.c: 6 warnings, 1 error
+compiling control_logic.c...
+..\USER\C\control_logic.c(75): warning:  #223-D: function "stepper_stop" declared implicitly
+                      stepper_stop();          /* 停止接口输出 */
+..\USER\C\control_logic.c(102): warning:  #223-D: function "stepper_stop" declared implicitly
+                      stepper_stop();          /* 停止接口输出 */
+..\USER\C\control_logic.c(130): error:  #65: expected a ";"
+  {
+..\USER\C\control_logic.c(149): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+..\USER\C\control_logic.c(149): error: At end of source:  #67: expected a "}"
+..\USER\C\control_logic.c(149): error: At end of source:  #67: expected a "}"
+..\USER\C\control_logic.c: 3 warnings, 3 errors
+compiling stepper_motor.c...
+"Third_Points_Race_sanziqi\Third_Points_Race_sanziqi.axf" - 4 Error(s), 9 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.15.0.pack
+                Keil.STM32F4xx_DFP.2.15.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Third_Points_Race_sanziqi
+  D:\Programs\Keil_v5\ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  D:\Programs\Keil_v5\ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+      Include file:  CMSIS\Core\Include\tz_context.h
+Target not created.
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
