@@ -1,5 +1,5 @@
 third_points_race_sanziqi\chess_task.o: ..\USER\C\chess_task.c
-third_points_race_sanziqi\chess_task.o: ..\USER\H\chess_task.h
+third_points_race_sanziqi\chess_task.o: ../USER/H/chess_task.h
 third_points_race_sanziqi\chess_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 third_points_race_sanziqi\chess_task.o: ../Core/Inc/stm32f4xx_hal_conf.h
 third_points_race_sanziqi\chess_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h

@@ -1,6 +1,10 @@
 #include "Control_logic.h"
 #include "Chess_Task.h"
 #include "stepper_motor.h"
+#include "control.h"
+#include "uart.h"
+
+#include "stm32f4xx_hal.h"
 
 extern TIM_HandleTypeDef htim2;
 
@@ -9,9 +13,9 @@ uint16_t TimeCount = 0;
 uint8_t TimeUseFlag = 0;
 
 
-/* ¸ß¼¶¶¨Ê±Æ÷PWM */
-uint32_t g_count_val1 = 0;                   /* ¼ÆÊýÖµ */
-uint32_t g_count_val2 = 0;                   /* ¼ÆÊýÖµ */
+/* ï¿½ß¼ï¿½ï¿½ï¿½Ê±ï¿½ï¿½PWM */
+uint32_t g_count_val1 = 0;                   /* ï¿½ï¿½ï¿½ï¿½Öµ */
+uint32_t g_count_val2 = 0;                   /* ï¿½ï¿½ï¿½ï¿½Öµ */
 uint8_t g_run_flag1 = 0;
 uint8_t g_run_flag2 = 0;
 
@@ -19,21 +23,19 @@ DelayTimer delayTimer = {0};
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if(htim == &htim3)//1msÖÐ¶Ï
+    if(htim == &htim3)//1msï¿½Ð¶ï¿½
     {
         if(delayTimer.isRunning && delayTimer.counter > 0)
         {
             delayTimer.counter --;
         }
     }
-    if(htim == &htim2)//10msÖÐ¶Ï
+    if(htim == &htim2)//10msï¿½Ð¶ï¿½
     {
-        Chess_Task();//ÈÎÎñÅÜÔÚÕâÀïÃæ
+        Place_Chess(piece_id,board_id);
+        // Chess_Task();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
-//    if(htim == &htim4)
-//    {
-//        HAL_GPIO_TogglePin(GPIOD, LED_1_Pin);
-//   }
+
 
 }
 
@@ -60,23 +62,23 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
             {
                 
                 i1 = 0;
-                g_run_flag1 = 1;                             /* ±êÖ¾Î»ÖÃÒ» */
-                g_stepperx.pulse_count--;                    /* Ã¿Ò»¸öÍêÕûµÄÂö³å¾Í-- */
+                g_run_flag1 = 1;                             /* ï¿½ï¿½Ö¾Î»ï¿½ï¿½Ò» */
+                g_stepperx.pulse_count--;                    /* Ã¿Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-- */
                 if(g_stepperx.dir == CW)
                 {
-                   g_stepperx.add_pulse_count++;             /* ¾ø¶ÔÎ»ÖÃ++ */
+                   g_stepperx.add_pulse_count++;             /* ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½++ */
                 }else
                 {
-                   g_stepperx.add_pulse_count--;             /* ¾ø¶ÔÎ»ÖÃ-- */
+                   g_stepperx.add_pulse_count--;             /* ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½-- */
                 }
 
-                if(g_stepperx.pulse_count<=0)                /* µ±Âö³åÊýµÈÓÚ0µÄÊ±ºò ´ú±íÐèÒª·¢ËÍµÄÂö³å¸öÊýÒÑÍê³É£¬Í£Ö¹¶¨Ê±Æ÷Êä³ö */
+                if(g_stepperx.pulse_count<=0)                /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½Ê±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½Í£Ö¹ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ */
                 {
-                    stepper_stop();          /* Í£Ö¹½Ó¿ÚÊä³ö */
+                    stepper_stop();          /* Í£Ö¹ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ */
                     g_run_flag1=0;
                 }
             }
-            /*»ñÈ¡µ±Ç°¼ÆÊý*/
+            /*ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½*/
             g_count_val1 =__HAL_TIM_GetCompare(&htim2,TIM_CHANNEL_1);
             __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, (g_count_val1 + 150)%0XFFFF);
         }
@@ -87,31 +89,31 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
             if(i4 % 2 == 0)
             {
                 i4 = 0;
-                g_run_flag2 = 1;                             /* ±êÖ¾Î»ÖÃÒ» */
-                g_steppery.pulse_count--;                    /* Ã¿Ò»¸öÍêÕûµÄÂö³å¾Í-- */
+                g_run_flag2 = 1;                             /* ï¿½ï¿½Ö¾Î»ï¿½ï¿½Ò» */
+                g_steppery.pulse_count--;                    /* Ã¿Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-- */
                 if(g_steppery.dir == CW)
                 {
-                   g_steppery.add_pulse_count++;             /* ¾ø¶ÔÎ»ÖÃ++ */
+                   g_steppery.add_pulse_count++;             /* ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½++ */
                 }else
                 {
-                   g_steppery.add_pulse_count--;             /* ¾ø¶ÔÎ»ÖÃ-- */
+                   g_steppery.add_pulse_count--;             /* ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½-- */
                 }
 
-                if(g_steppery.pulse_count<=0)                /* µ±Âö³åÊýµÈÓÚ0µÄÊ±ºò ´ú±íÐèÒª·¢ËÍµÄÂö³å¸öÊýÒÑÍê³É£¬Í£Ö¹¶¨Ê±Æ÷Êä³ö */
+                if(g_steppery.pulse_count<=0)                /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½Ê±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½Í£Ö¹ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ */
                 {
-                    stepper_stop();          /* Í£Ö¹½Ó¿ÚÊä³ö */
+                    stepper_stop();          /* Í£Ö¹ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ */
                     g_run_flag2=0;
                 }
             }
-            /*»ñÈ¡µ±Ç°¼ÆÊý*/
+            /*ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½*/
             g_count_val2 = __HAL_TIM_GET_COUNTER(&htim2);
             __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, (g_count_val2 + 150)%0XFFFF);
             
         }
 
+    }
 
-
-
+}
 
 
 
@@ -124,7 +126,7 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
 
 
 /*
- *@brief  ÑÓÊ±¶¨Ê±Æ÷³õÊ¼»¯
+ *@brief  ï¿½ï¿½Ê±ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
 */
 void Delay_Timer(uint32_t millseconds)
 {
@@ -133,7 +135,7 @@ void Delay_Timer(uint32_t millseconds)
 }
 
 /*
- *@@brief  ÔÚwhileÑ­»·ÖÐÅÐ¶ÏÑÓÊ±ÊÇ·ñ½áÊø
+ *@@brief  ï¿½ï¿½whileÑ­ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½Ê±ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 */
 uint8_t checkDelayTimer(void)
 {

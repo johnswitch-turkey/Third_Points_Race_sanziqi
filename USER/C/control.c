@@ -1,6 +1,9 @@
 #include "control.h"
 #include "Control_logic.h"
 #include "chess_task.h"
+#include "stepper_motor.h"
+#include "servo.h"
+#include "uart.h"
 
 typedef struct {
    uint32_t x;      // X轴目标位置
@@ -52,28 +55,120 @@ Position chess_position[10]=
 */
 void Place_Chess(uint8_t Chess_ID,uint8_t Board_ID)
 {
+   if (motor_flag == 1)
+   {
     // 检查参数的有效性
     if (Chess_ID == 0 || Chess_ID > 10 || Board_ID == 0 || Board_ID > 10) {
       return;
-  }
-   // 计算棋子的起始位置索引（假设Chess_ID从1开始）
-   uint8_t chessIndex = Chess_ID - 1;
-   uint8_t boardIndex = Board_ID - 1;
+      }
+      // 计算棋子的起始位置索引（假设Chess_ID从1开始）
+      uint8_t chessIndex = Chess_ID - 1;
+      uint8_t boardIndex = Board_ID - 1;
 
-   Position start = {chess_position[chessIndex].x, chess_position[chessIndex].y};   //棋子位置
-   Position end = {board_position[boardIndex].x, board_position[boardIndex].y};     //棋盘位置
+      Position start = {chess_position[chessIndex].x, chess_position[chessIndex].y};   //棋子位置
+      Position end = {board_position[boardIndex].x, board_position[boardIndex].y};     //棋盘位置
    
-   if(rotate_flag == 1)  //换成旋转后的棋盘位置
-   {
-      end.x = board_rotate_position[boardIndex].x;
-      end.y = board_rotate_position[boardIndex].y;
+      if(rotate_flag == 1)  //换成旋转后的棋盘位置
+      {
+         end.x = board_rotate_position[boardIndex].x;
+         end.y = board_rotate_position[boardIndex].y;
+      }
+
+      // 1. 移动机械臂到棋子存放位置
+      control_t(start.x, start.y);
+      Delay_Timer(180);
+      while(!checkDelayTimer());
+
+   
+      // 2. 执行抓取动作（需实现夹爪控制）
+      Servo_Down();
+      Magnet_On();
+      Delay_Timer(100);
+      while(!checkDelayTimer());
+      Servo_Up();
+      Delay_Timer(100);
+      while(!checkDelayTimer());
+   
+      // 3. 移动机械臂到目标棋盘位置
+      control_t(end.x,end.y);
+      Delay_Timer(150);
+      while(!checkDelayTimer());
+
+      // 4. 执行放置动作
+      Servo_Down();
+      Delay_Timer(150);
+      while(!checkDelayTimer());
+      Magnet_Off();
+      Servo_Up();
+   
+      // 5. 返回回零位置
+      control_to_zero();
+      Delay_Timer(100);
+      while(!checkDelayTimer());
+//    LED_Task_On();
    }
 
-   // 1. 移动机械臂到棋子存放位置
-   control_t(start.x, start.y);
+}
+
+
+
+
+
+
+void control_t(uint32_t x_talget,uint32_t y_target){
+
+      if (x_talget > 20000 || y_target > 20000) {
+         return; // 检查目标位置是否在有效范围内
+      }  
+
+	   uint32_t x = x_talget - g_stepperx.add_pulse_count; // 算出x方向差值
+      uint32_t y = y_target - g_steppery.add_pulse_count; // 算出y方向差值
+      
+      g_stepperx.dir = (x > 0) ? CW : CCW; // 设置x方向
+      g_steppery.dir = (y > 0) ? CW : CCW; // 设置y方向
+
+      if (g_stepperx.dir == CW && g_steppery.dir == CW)  // 这里的condition是一个条件判断，具体逻辑需要根据实际情况来实现
+      {
+         ST1_DIR(1);
+         ST2_DIR(1); 
+      }
+      else if (g_stepperx.dir == CW && g_steppery.dir == CCW)
+      {
+         ST1_DIR(1);
+         ST2_DIR(0); 
+      }
+     else if (g_stepperx.dir == CCW && g_steppery.dir == CW)
+      {
+        ST1_DIR(0);
+        ST2_DIR(1);
+      }
+      else
+      {
+         ST1_DIR(0);
+         ST2_DIR(0); 
+      }
+
+
+      /*计算x，y方向上步进电机的脉冲数*/
+      int32_t x_distance = abs(x);  // 取x绝对值
+      int32_t y_distance = abs(y);  // 取y绝对值
+
+	   // g_stepperx.pulse_count = distance / 2 / PI / STEP_R *200*16;
+      g_stepperx.pulse_count = x_distance /  STEP_R * 509;  // 计算x步进电机脉冲数
+      // g_steppery.pulse_count = y_distance / 2 / PI / STEP_R *200*16;
+      g_steppery.pulse_count = y_distance /  STEP_R * 509;  // 计算y步进电机脉冲数
+
+   
+
+}
+
+
+void control_to_zero(void)
+{
+    // 1. 移动机械臂到棋子存放位置
+   control_t(0, 0);
    Delay_Timer(180);
    while(!checkDelayTimer());
-
    
    // 2. 执行抓取动作（需实现夹爪控制）
    Servo_Down();
@@ -83,47 +178,18 @@ void Place_Chess(uint8_t Chess_ID,uint8_t Board_ID)
    Servo_Up();
    Delay_Timer(100);
    while(!checkDelayTimer());
-   
-   // 3. 移动机械臂到目标棋盘位置
-   control_t(end.x,end.y);
-   Delay_Timer(150);
-   while(!checkDelayTimer());
+}
 
-   // 4. 执行放置动作
-   Servo_Down();
-   Delay_Timer(150);
-   while(!checkDelayTimer());
-   Magnet_Off();
-   Servo_Up();
-   
-   // 5. 返回回零位置
-   control_to_zero();
-   Delay_Timer(100);
-   while(!checkDelayTimer());
-//   LED_Task_On();
 
+int32_t abs(uint32_t x)  // 取绝对值
+{
+    if (x < 0) {
+        return -x;
+    }
+    return x;
 }
 
 
 
 
-
-
-void control_t(uint32_t x_distance,uint32_t y_distance){
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
 

@@ -1,5 +1,5 @@
 third_points_race_sanziqi\control_logic.o: ..\USER\C\control_logic.c
-third_points_race_sanziqi\control_logic.o: ..\USER\H\Control_logic.h
+third_points_race_sanziqi\control_logic.o: ../USER/H/Control_logic.h
 third_points_race_sanziqi\control_logic.o: ../Core/Inc/main.h
 third_points_race_sanziqi\control_logic.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 third_points_race_sanziqi\control_logic.o: ../Core/Inc/stm32f4xx_hal_conf.h
@@ -34,5 +34,5 @@ third_points_race_sanziqi\control_logic.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/s
 third_points_race_sanziqi\control_logic.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 third_points_race_sanziqi\control_logic.o: ../Core/Inc/tim.h
 third_points_race_sanziqi\control_logic.o: ../Core/Inc/gpio.h
-third_points_race_sanziqi\control_logic.o: ..\USER\H\Chess_Task.h
-third_points_race_sanziqi\control_logic.o: ..\USER\H\stepper_motor.h
+third_points_race_sanziqi\control_logic.o: ../USER/H/Chess_Task.h
+third_points_race_sanziqi\control_logic.o: ../USER/H/stepper_motor.h

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stepper_motor.h": "c",
+        "uart.h": "c",
+        "stm32f4xx_hal.h": "c"
+    }
+}

@@ -6,7 +6,7 @@
 #include "gpio.h"
 
 typedef struct{
-    volatile uint32_t counter;//当前计数值
+    volatile uint32_t counter;//锟斤拷前锟斤拷锟斤拷值
     uint8_t isRunning;
 } DelayTimer;
 

@@ -73,28 +73,33 @@ void stepper_stop()
 
 
 
-void stepperx_set_pulse(uint16_t distance, uint8_t dir1, uint8_t dir2)
-{
-	  // g_stepperx.pulse_count = distance / 2 / PI / STEP_R *200*16;
-    g_stepperx.pulse_count = distance /  STEP_R * 509;
-	
-    if(g_stepperx.pulse_count == 0)
-    {
-        stepper_stop();
-    }
-    else stepper_start(dir1,dir2);
-}
 
-void steppery_set_angle(uint16_t distance, uint8_t dir1, uint8_t dir2)
-{
-    g_steppery.pulse_count = distance /  STEP_R * 509;
-	
-    if(g_steppery.pulse_count == 0) 
-    {
-        stepper_stop();
-    }
-    else stepper_start(dir1,dir2);
-}
+
+
+
+
+//void stepperx_set_pulse(uint16_t distance, uint8_t dir1, uint8_t dir2)
+//{
+//	  // g_stepperx.pulse_count = distance / 2 / PI / STEP_R *200*16;
+//    g_stepperx.pulse_count = distance /  STEP_R * 509;
+//	
+//    if(g_stepperx.pulse_count == 0)
+//    {
+//        stepper_stop();
+//    }
+//    else stepper_start(dir1,dir2);
+//}
+
+//void steppery_set_pulse(uint16_t distance, uint8_t dir1, uint8_t dir2)
+//{
+//    g_steppery.pulse_count = distance /  STEP_R * 509;
+//	
+//    if(g_steppery.pulse_count == 0) 
+//    {
+//        stepper_stop();
+//    }
+//    else stepper_start(dir1,dir2);
+//}
 
 
 

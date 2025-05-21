@@ -63,6 +63,8 @@ void Error_Handler(void);
 #define MA_DIR_GPIO_Port GPIOA
 #define MB_DIR_Pin GPIO_PIN_2
 #define MB_DIR_GPIO_Port GPIOA
+#define MAGNET_Pin GPIO_PIN_3
+#define MAGNET_GPIO_Port GPIOA
 #define MA_EN_Pin GPIO_PIN_1
 #define MA_EN_GPIO_Port GPIOB
 #define MB_EN_Pin GPIO_PIN_2

@@ -6,57 +6,56 @@
 
 
 
-/* ²½½øµç»ú»ù±¾²ÎÊý¶¨Òå */
-#define PULSE_REV       3200.0     /* Ã¿È¦Âö³åÊý(8Ï¸·Ö,200*16=3200) */
-#define MAX_STEP_ANGLE  0.1125     /* ×îÐ¡²½¾à½Ç(1.8/16=0.1125¶È) */
-#define STEP_R					13         /* Ðý×ª°ë¾¶ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+#define PULSE_REV       3200.0     /* Ã¿È¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(8Ï¸ï¿½ï¿½,200*16=3200) */
+#define MAX_STEP_ANGLE  0.1125     /* ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½(1.8/16=0.1125ï¿½ï¿½) */
+#define STEP_R					13         /* ï¿½ï¿½×ªï¿½ë¾¶ */
 
 
-/* ²½½øµç»ú¿ØÖÆ½á¹¹Ìå */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½á¹¹ï¿½ï¿½ */
 typedef struct
 {
-    int angle ;                             // ½Ç¶È
-    uint8_t dir;                            // ·½Ïò
-    uint8_t en;                             // Ê¹ÄÜ×´Ì¬
-    volatile uint32_t pulse_count;          // Ïà¶ÔÎ»ÖÃ
-    volatile int add_pulse_count;           // ¾ø¶ÔÎ»ÖÃ  
+    int angle ;                             // ï¿½Ç¶ï¿½
+    uint8_t dir;                            // ï¿½ï¿½ï¿½ï¿½
+    volatile uint32_t pulse_count;          // ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+    volatile uint16_t add_pulse_count;           // ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½  
 } STEPPER_MOTOR;
 
-/* µç»ú¶ÔÏóÉùÃ÷ */
-extern STEPPER_MOTOR g_stepperx;   // µç»ú1¶ÔÏó
-extern STEPPER_MOTOR g_steppery;   // µç»ú2¶ÔÏó
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+extern STEPPER_MOTOR g_stepperx;   // ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½
+extern STEPPER_MOTOR g_steppery;   // ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½
 
 
-/* Ðý×ª·½ÏòÃ¶¾Ù¶¨Òå */
+/* ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ã¶ï¿½Ù¶ï¿½ï¿½ï¿½ */
 enum dir
 {
-    CCW = 0,                       /* ÄæÊ±Õë·½ÏòÐý×ª */
-    CW,                           /* Ë³Ê±Õë·½ÏòÐý×ª */
+    CCW = 0,                       /* ï¿½ï¿½Ê±ï¿½ë·½ï¿½ï¿½ï¿½ï¿½×ª */
+    CW ,                           /* Ë³Ê±ï¿½ë·½ï¿½ï¿½ï¿½ï¿½×ª */
 }; 
 
 
 
 
-/* ²½½øµç»ú½Ó¿Ú±àºÅ¶¨Òå */
-#define STEPPER_MOTOR_1    1      /* µç»ú1½Ó¿Ú±àºÅ */
-#define STEPPER_MOTOR_2    2      /* µç»ú2½Ó¿Ú±àºÅ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿Ú±ï¿½Å¶ï¿½ï¿½ï¿½ */
+#define STEPPER_MOTOR_1    1      /* ï¿½ï¿½ï¿½1ï¿½Ó¿Ú±ï¿½ï¿½ */
+#define STEPPER_MOTOR_2    2      /* ï¿½ï¿½ï¿½2ï¿½Ó¿Ú±ï¿½ï¿½ */
 
 
-/* ²½½øµç»ú·½Ïò¿ØÖÆÒý½Å¶¨Òå */
-// µç»ú1·½Ïò¿ØÖÆÒý½Å
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ */
+// ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define STEPPER_DIR1_GPIO_PIN     GPIO_PIN_1
 #define STEPPER_DIR1_GPIO_PORT    GPIOA
 
-// µç»ú2·½Ïò¿ØÖÆÒý½Å
+// ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define STEPPER_DIR2_GPIO_PIN     GPIO_PIN_2
 #define STEPPER_DIR2_GPIO_PORT    GPIOA
 
-/* ²½½øµç»úÊ¹ÄÜ¿ØÖÆÒý½Å¶¨Òå */
-// µç»ú1Ê¹ÄÜ¿ØÖÆÒý½Å  
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ */
+// ï¿½ï¿½ï¿½1Ê¹ï¿½Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 #define STEPPER_EN1_GPIO_PIN      GPIO_PIN_1
 #define STEPPER_EN1_GPIO_PORT     GPIOB
 
-// µç»ú2Ê¹ÄÜ¿ØÖÆÒý½Å
+// ï¿½ï¿½ï¿½2Ê¹ï¿½Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define STEPPER_EN2_GPIO_PIN      GPIO_PIN_2
 #define STEPPER_EN2_GPIO_PORT     GPIOB
 
@@ -65,7 +64,7 @@ enum dir
 #define ST1_DIR(x)    do{ x ? \
                               HAL_GPIO_WritePin(STEPPER_DIR1_GPIO_PORT, STEPPER_DIR1_GPIO_PIN, GPIO_PIN_SET) : \
                               HAL_GPIO_WritePin(STEPPER_DIR1_GPIO_PORT, STEPPER_DIR1_GPIO_PIN, GPIO_PIN_RESET); \
-                          }while(0)  
+                          }while(0);  
 
 #define ST2_DIR(x)    do{ x ? \
                               HAL_GPIO_WritePin(STEPPER_DIR2_GPIO_PORT, STEPPER_DIR2_GPIO_PIN, GPIO_PIN_SET) : \

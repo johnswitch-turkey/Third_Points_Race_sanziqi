@@ -22,40 +22,49 @@ Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
 D:\STM32_Projects\Third_Points_Race_sanziqi\MDK-ARM\Third_Points_Race_sanziqi.uvprojx
-Project File Date:  05/18/2025
+Project File Date:  05/19/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Programs\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Third_Points_Race_sanziqi'
+assembling startup_stm32f401xc.s...
 compiling control.c...
-..\USER\C\control.c(73): warning:  #223-D: function "control_t" declared implicitly
+..\USER\C\control.c(74): warning:  #223-D: function "control_t" declared implicitly
      control_t(start.x, start.y);
-..\USER\C\control.c(79): warning:  #223-D: function "Servo_Down" declared implicitly
+..\USER\C\control.c(80): warning:  #223-D: function "Servo_Down" declared implicitly
      Servo_Down();
-..\USER\C\control.c(80): warning:  #223-D: function "Magnet_On" declared implicitly
+..\USER\C\control.c(81): warning:  #223-D: function "Magnet_On" declared implicitly
      Magnet_On();
-..\USER\C\control.c(83): warning:  #223-D: function "Servo_Up" declared implicitly
+..\USER\C\control.c(84): warning:  #223-D: function "Servo_Up" declared implicitly
      Servo_Up();
-..\USER\C\control.c(96): warning:  #223-D: function "Magnet_Off" declared implicitly
+..\USER\C\control.c(97): warning:  #223-D: function "Magnet_Off" declared implicitly
      Magnet_Off();
-..\USER\C\control.c(100): warning:  #223-D: function "control_to_zero" declared implicitly
+..\USER\C\control.c(101): warning:  #223-D: function "control_to_zero" declared implicitly
      control_to_zero();
-..\USER\C\control.c(112): error:  #159: declaration is incompatible with previous "control_t"  (declared at line 73)
-  void control_t(uint32_t x_distance,uint32_t y_distance){
-..\USER\C\control.c: 6 warnings, 1 error
+..\USER\C\control.c(113): error:  #159: declaration is incompatible with previous "control_t"  (declared at line 74)
+  void control_t(uint32_t x_talget,uint32_t y_target){
+..\USER\C\control.c(115): error:  #20: identifier "motor_flag" is undefined
+     if (motor_flag == 1)
+..\USER\C\control.c(152): warning:  #223-D: function "abs" declared implicitly
+        int32_t x_distance = abs(x);  // È¡x¾ø¶ÔÖµ
+..\USER\C\control.c(165): error:  #159: declaration is incompatible with previous "control_to_zero"  (declared at line 101)
+  void control_to_zero(void)
+..\USER\C\control.c(173): warning:  #223-D: function "Servo_Down" declared implicitly
+     Servo_Down();
+..\USER\C\control.c(174): warning:  #223-D: function "Magnet_On" declared implicitly
+     Magnet_On();
+..\USER\C\control.c(177): warning:  #223-D: function "Servo_Up" declared implicitly
+     Servo_Up();
+..\USER\C\control.c(185): warning:  #186-D: pointless comparison of unsigned integer with zero
+      if (x < 0) {
+..\USER\C\control.c: 11 warnings, 3 errors
 compiling control_logic.c...
 ..\USER\C\control_logic.c(75): warning:  #223-D: function "stepper_stop" declared implicitly
-                      stepper_stop();          /* Í£Ö¹½Ó¿ÚÊä³ö */
+                      stepper_stop();          /* Í£Ö¹ï¿½Ó¿ï¿½ï¿½ï¿½ï¿? */
 ..\USER\C\control_logic.c(102): warning:  #223-D: function "stepper_stop" declared implicitly
-                      stepper_stop();          /* Í£Ö¹½Ó¿ÚÊä³ö */
-..\USER\C\control_logic.c(130): error:  #65: expected a ";"
-  {
-..\USER\C\control_logic.c(149): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
-..\USER\C\control_logic.c(149): error: At end of source:  #67: expected a "}"
-..\USER\C\control_logic.c(149): error: At end of source:  #67: expected a "}"
-..\USER\C\control_logic.c: 3 warnings, 3 errors
-compiling stepper_motor.c...
-"Third_Points_Race_sanziqi\Third_Points_Race_sanziqi.axf" - 4 Error(s), 9 Warning(s).
+                      stepper_stop();          /* Í£Ö¹ï¿½Ó¿ï¿½ï¿½ï¿½ï¿? */
+..\USER\C\control_logic.c: 2 warnings, 0 errors
+"Third_Points_Race_sanziqi\Third_Points_Race_sanziqi.axf" - 3 Error(s), 13 Warning(s).
 
 <h2>Software Packages used:</h2>
 
