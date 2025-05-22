@@ -21,7 +21,15 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
+#include "string.h"
+#include "stdlib.h"
 
+#include "decode.h"
+
+/* ����ı������� UART �жϽ��գ� */
+uint8_t rx_byte;                 // ÿ���жϽ��յĵ��ֽ�
+static char rx_buffer[RX_BUFFER_SIZE];
+static uint8_t rx_index = 0;
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -110,5 +118,23 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART1)
+    {
+        if ((rx_byte == '\n') || (rx_index >= RX_BUFFER_SIZE - 1))
+        {
+            rx_buffer[rx_index] = '\0';         // ���ַ���ĩβ�� '\0'
+            parse_command(rx_buffer);           // ���� parse_command ���������
+            rx_index = 0;                       // �����������´δ浽 [0]
+        }
+        else
+        {
+            rx_buffer[rx_index++] = (char)rx_byte;
+        }
 
+        /* �ٴ��������ֽ��жϽ��� */
+        HAL_UART_Receive_IT(&huart1, &rx_byte, 1);
+    }
+}
 /* USER CODE END 1 */

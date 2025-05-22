@@ -3,24 +3,32 @@
 #include "chess_task.h"
 #include "stepper_motor.h"
 #include "servo.h"
-#include "uart.h"
+#include "usart.h"
+#include "decode.h"
+#include <stdlib.h>
+
+
+uint8_t st1_dir;
+uint8_t st2_dir;
+
+
 
 typedef struct {
-   uint32_t x;      // XÖáÄ¿±êÎ»ÖÃ
-   uint32_t y;      // YÖáÄ¿±êÎ»ÖÃ
+   uint32_t x;      // Xï¿½ï¿½Ä¿ï¿½ï¿½Î»ï¿½ï¿½
+   uint32_t y;      // Yï¿½ï¿½Ä¿ï¿½ï¿½Î»ï¿½ï¿½
 } Position;
 
-//ÆåÅÌ×ø±ê
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 Position board_position[9]=
 {
-    // µÚ0ÐÐ£¨Êµ¼Ê¿ª·¢ÖÐ½¨Òé´Ó0¿ªÊ¼¼ÆÊý£©
-    {5200, 16600}, {5200, 13650}, {5200, 10500},  // ÆåÅÌÎ»ÖÃ1 , 2 , 3 -200 -550
-    // µÚ1ÐÐ
-    {8300, 16500}, {8250, 13650}, {8100, 10500},  // ÆåÅÌÎ»ÖÃ4 , 5 , 6
-    // µÚ2ÐÐ
-    {11150, 16500}, {11150, 13650}, {11150, 10500}   // ÆåÅÌÎ»ÖÃ7 , 8 , 9
+    // ï¿½ï¿½0ï¿½Ð£ï¿½Êµï¿½Ê¿ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    {5200, 16600}, {5200, 13650}, {5200, 10500},  // ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½1 , 2 , 3 -200 -550
+    // ï¿½ï¿½1ï¿½ï¿½
+    {8300, 16500}, {8250, 13650}, {8100, 10500},  // ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½4 , 5 , 6
+    // ï¿½ï¿½2ï¿½ï¿½
+    {11150, 16500}, {11150, 13650}, {11150, 10500}   // ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½7 , 8 , 9
 };
-//ÆåÅÌÐý×ª45¶È×ø±ê
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª45ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 Position board_rotate_position[9]=
 {
 
@@ -31,56 +39,65 @@ Position board_rotate_position[9]=
                      {12100, 13400}   //9
 };
 
-//Æå×Ó×ø±ê
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 Position chess_position[10]=
 {
-   {1850, 23400},   // Æå×Ó1µÄ³õÊ¼Î»ÖÃ
-   {4850, 23550},   // Æå×Ó2
-   {7850, 23700},   // Æå×Ó3
-   {10900, 23800},   // Æå×Ó4
-   {13950, 23800},   // Æå×Ó5
-   {2500, 3650},   // Æå×Ó6 x·½Ïò y·½ÏòCW·½Ïò
-   {5500, 3650},  // Æå×Ó7
-   {8500, 3650},  // Æå×Ó8
-   {11500,3750},  // Æå×Ó9
-   {14500,3850}   // Æå×Ó10
+   {1850, 23400},   // ï¿½ï¿½ï¿½ï¿½1ï¿½Ä³ï¿½Ê¼Î»ï¿½ï¿½
+   {4850, 23550},   // ï¿½ï¿½ï¿½ï¿½2
+   {7850, 23700},   // ï¿½ï¿½ï¿½ï¿½3
+   {10900, 23800},   // ï¿½ï¿½ï¿½ï¿½4
+   {13950, 23800},   // ï¿½ï¿½ï¿½ï¿½5
+   {2500, 3650},   // ï¿½ï¿½ï¿½ï¿½6 xï¿½ï¿½ï¿½ï¿½ yï¿½ï¿½ï¿½ï¿½CWï¿½ï¿½ï¿½ï¿½
+   {5500, 3650},  // ï¿½ï¿½ï¿½ï¿½7
+   {8500, 3650},  // ï¿½ï¿½ï¿½ï¿½8
+   {11500,3750},  // ï¿½ï¿½ï¿½ï¿½9
+   {14500,3850}   // ï¿½ï¿½ï¿½ï¿½10
 };
 
 
 
-
 /*
- *@brief:·ÅÖÃÆå×Ó
- *param: Æå×ÓºÅ£¬ì÷ÅÌºÅ
+ *@brief:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *param: ï¿½ï¿½ï¿½ÓºÅ£ï¿½ï¿½ï¿½ï¿½Ìºï¿½
 */
-void Place_Chess(uint8_t Chess_ID,uint8_t Board_ID)
-{
-   if (motor_flag == 1)
+
+uint8_t Board_ID;
+uint8_t Chess_ID;
+void Place_Chess(void)
+{	
+	Command_t get_cmd[2] = {0};
+//   if (dequeue_command(get_cmd) == 0) {
+//      return; // ï¿½ï¿½ï¿½Ð¶Ï£ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+//   }
+//   uint8_t Chess_ID = get_cmd->src;
+//   uint8_t Board_ID = get_cmd->dst;
+	Chess_ID = 1;
+	Board_ID = 1;
    {
-    // ¼ì²é²ÎÊýµÄÓÐÐ§ÐÔ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
     if (Chess_ID == 0 || Chess_ID > 10 || Board_ID == 0 || Board_ID > 10) {
       return;
       }
-      // ¼ÆËãÆå×ÓµÄÆðÊ¼Î»ÖÃË÷Òý£¨¼ÙÉèChess_ID´Ó1¿ªÊ¼£©
-      uint8_t chessIndex = Chess_ID - 1;
-      uint8_t boardIndex = Board_ID - 1;
+      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ê¼Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Chess_IDï¿½ï¿½1ï¿½ï¿½Ê¼ï¿½ï¿½
+      uint8_t chessIndex = Chess_ID ;
+      uint8_t boardIndex = Board_ID ;
 
-      Position start = {chess_position[chessIndex].x, chess_position[chessIndex].y};   //Æå×ÓÎ»ÖÃ
-      Position end = {board_position[boardIndex].x, board_position[boardIndex].y};     //ÆåÅÌÎ»ÖÃ
+      Position start = {chess_position[chessIndex].x, chess_position[chessIndex].y};   //ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+      Position end = {board_position[boardIndex].x, board_position[boardIndex].y};     //ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
    
-      if(rotate_flag == 1)  //»»³ÉÐý×ªºóµÄÆåÅÌÎ»ÖÃ
+      if(rotate_flag == 1)  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
       {
          end.x = board_rotate_position[boardIndex].x;
          end.y = board_rotate_position[boardIndex].y;
       }
 
-      // 1. ÒÆ¶¯»úÐµ±Ûµ½Æå×Ó´æ·ÅÎ»ÖÃ
+      // 1. ï¿½Æ¶ï¿½ï¿½ï¿½Ðµï¿½Ûµï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½Î»ï¿½ï¿½
       control_t(start.x, start.y);
       Delay_Timer(180);
       while(!checkDelayTimer());
 
    
-      // 2. Ö´ÐÐ×¥È¡¶¯×÷£¨ÐèÊµÏÖ¼Ð×¦¿ØÖÆ£©
+      // 2. Ö´ï¿½ï¿½×¥È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö¼ï¿½×¦ï¿½ï¿½ï¿½Æ£ï¿½
       Servo_Down();
       Magnet_On();
       Delay_Timer(100);
@@ -89,19 +106,19 @@ void Place_Chess(uint8_t Chess_ID,uint8_t Board_ID)
       Delay_Timer(100);
       while(!checkDelayTimer());
    
-      // 3. ÒÆ¶¯»úÐµ±Ûµ½Ä¿±êÆåÅÌÎ»ÖÃ
+      // 3. ï¿½Æ¶ï¿½ï¿½ï¿½Ðµï¿½Ûµï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
       control_t(end.x,end.y);
       Delay_Timer(150);
       while(!checkDelayTimer());
 
-      // 4. Ö´ÐÐ·ÅÖÃ¶¯×÷
+      // 4. Ö´ï¿½Ð·ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½
       Servo_Down();
       Delay_Timer(150);
       while(!checkDelayTimer());
       Magnet_Off();
       Servo_Up();
    
-      // 5. ·µ»Ø»ØÁãÎ»ÖÃ
+      // 5. ï¿½ï¿½ï¿½Ø»ï¿½ï¿½ï¿½Î»ï¿½ï¿½
       control_to_zero();
       Delay_Timer(100);
       while(!checkDelayTimer());
@@ -118,45 +135,48 @@ void Place_Chess(uint8_t Chess_ID,uint8_t Board_ID)
 void control_t(uint32_t x_talget,uint32_t y_target){
 
       if (x_talget > 20000 || y_target > 20000) {
-         return; // ¼ì²éÄ¿±êÎ»ÖÃÊÇ·ñÔÚÓÐÐ§·¶Î§ÄÚ
+         return; // ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½Î§ï¿½ï¿½
       }  
 
-	   uint32_t x = x_talget - g_stepperx.add_pulse_count; // Ëã³öx·½Ïò²îÖµ
-      uint32_t y = y_target - g_steppery.add_pulse_count; // Ëã³öy·½Ïò²îÖµ
+	  int32_t x = x_talget - g_stepperx.add_pulse_count; // ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+      int32_t y = y_target - g_steppery.add_pulse_count; // ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½Öµ
       
-      g_stepperx.dir = (x > 0) ? CW : CCW; // ÉèÖÃx·½Ïò
-      g_steppery.dir = (y > 0) ? CW : CCW; // ÉèÖÃy·½Ïò
+      g_stepperx.dir = (x > 0) ? CW : CCW; // ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½
+      g_steppery.dir = (y > 0) ? CW : CCW; // ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½
 
-      if (g_stepperx.dir == CW && g_steppery.dir == CW)  // ÕâÀïµÄconditionÊÇÒ»¸öÌõ¼þÅÐ¶Ï£¬¾ßÌåÂß¼­ÐèÒª¸ù¾ÝÊµ¼ÊÇé¿öÀ´ÊµÏÖ
+      if (g_stepperx.dir == CW && g_steppery.dir == CW)  // ï¿½ï¿½ï¿½ï¿½ï¿½conditionï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
       {
-         ST1_DIR(1);
-         ST2_DIR(1); 
+         st1_dir = 1;
+         st2_dir = 1;
       }
       else if (g_stepperx.dir == CW && g_steppery.dir == CCW)
       {
-         ST1_DIR(1);
-         ST2_DIR(0); 
+         st1_dir = 1;
+         st2_dir = 0; 
       }
      else if (g_stepperx.dir == CCW && g_steppery.dir == CW)
       {
-        ST1_DIR(0);
-        ST2_DIR(1);
+        st1_dir = 0;
+        st2_dir = 1;
       }
       else
       {
-         ST1_DIR(0);
-         ST2_DIR(0); 
+         st1_dir = 0;
+         st2_dir = 0; 
       }
+	  
+	  stepper_start(st1_dir,st2_dir);
+	  
 
 
-      /*¼ÆËãx£¬y·½ÏòÉÏ²½½øµç»úµÄÂö³åÊý*/
-      int32_t x_distance = abs(x);  // È¡x¾ø¶ÔÖµ
-      int32_t y_distance = abs(y);  // È¡y¾ø¶ÔÖµ
+      /*ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
+      int32_t x_distance = abs(x);  // È¡xï¿½ï¿½ï¿½ï¿½Öµ
+      int32_t y_distance = abs(y);  // È¡yï¿½ï¿½ï¿½ï¿½Öµ
 
 	   // g_stepperx.pulse_count = distance / 2 / PI / STEP_R *200*16;
-      g_stepperx.pulse_count = x_distance /  STEP_R * 509;  // ¼ÆËãx²½½øµç»úÂö³åÊý
+      g_stepperx.pulse_count = x_distance /  STEP_R * 509;  // ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
       // g_steppery.pulse_count = y_distance / 2 / PI / STEP_R *200*16;
-      g_steppery.pulse_count = y_distance /  STEP_R * 509;  // ¼ÆËãy²½½øµç»úÂö³åÊý
+      g_steppery.pulse_count = y_distance /  STEP_R * 509;  // ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
    
 
@@ -165,12 +185,12 @@ void control_t(uint32_t x_talget,uint32_t y_target){
 
 void control_to_zero(void)
 {
-    // 1. ÒÆ¶¯»úÐµ±Ûµ½Æå×Ó´æ·ÅÎ»ÖÃ
+    // 1. ï¿½Æ¶ï¿½ï¿½ï¿½Ðµï¿½Ûµï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½Î»ï¿½ï¿½
    control_t(0, 0);
    Delay_Timer(180);
    while(!checkDelayTimer());
    
-   // 2. Ö´ÐÐ×¥È¡¶¯×÷£¨ÐèÊµÏÖ¼Ð×¦¿ØÖÆ£©
+   // 2. Ö´ï¿½ï¿½×¥È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö¼ï¿½×¦ï¿½ï¿½ï¿½Æ£ï¿½
    Servo_Down();
    Magnet_On();
    Delay_Timer(100);
@@ -181,13 +201,13 @@ void control_to_zero(void)
 }
 
 
-int32_t abs(uint32_t x)  // È¡¾ø¶ÔÖµ
-{
-    if (x < 0) {
-        return -x;
-    }
-    return x;
-}
+//int32_t abs(int32_t x)  // È¡ï¿½ï¿½ï¿½ï¿½Öµ
+//{
+//    if (x < 0) {
+//        return -x;
+//    }
+//    return x;
+//}
 
 
 

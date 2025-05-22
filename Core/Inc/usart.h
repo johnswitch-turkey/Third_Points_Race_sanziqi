@@ -36,12 +36,22 @@ extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN Private defines */
 
+#define RX_BUFFER_SIZE 32
+
 /* USER CODE END Private defines */
 
 void MX_USART1_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 
+
+
+
+/* ����ı������� UART �жϽ��գ� */
+extern uint8_t  rx_byte;                 // ÿ���жϽ���һ���ֽ�
+static char rx_buffer[RX_BUFFER_SIZE];
+static uint8_t  rx_index ;            // ��ǰ�Ѵ�ŵ��ֽ�����������
+extern uint8_t parse_command_ready;   //�Ƿ��������������ı��λ
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

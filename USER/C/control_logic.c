@@ -2,7 +2,7 @@
 #include "Chess_Task.h"
 #include "stepper_motor.h"
 #include "control.h"
-#include "uart.h"
+#include "usart.h"
 
 #include "stm32f4xx_hal.h"
 
@@ -32,7 +32,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
     if(htim == &htim2)//10ms�ж�
     {
-        Place_Chess(piece_id,board_id);
+        Place_Chess();
         // Chess_Task();//��������������
     }
 
@@ -49,70 +49,37 @@ uint8_t i2 = 0;
 uint8_t i4 = 0;
 
 void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
-{
-    
-    if(htim->Instance==TIM1)
-    {
+{   
+    if(htim->Instance==TIM2 && htim->Channel==HAL_TIM_ACTIVE_CHANNEL_1)
+    {   
+        i1++;
+        if(i1 % 2 == 0)
+        {
+            i1 = 0;
+            g_stepperx.pulse_count--;
+            g_steppery.pulse_count--;
+            // 同时更新两个电机的位置计数
+            if(g_stepperx.dir == CW)
+                g_stepperx.add_pulse_count++;
+            else
+                g_stepperx.add_pulse_count--;
+            
+            if(g_steppery.dir == CW)
+                g_steppery.add_pulse_count++;
+            else
+                g_steppery.add_pulse_count--;
+
+            // 检查是否完成指定脉冲数
+            if(g_stepperx.pulse_count <= 0 && g_steppery.pulse_count <= 0)
+            {
+                stepper_stop();  // 同时停止两个电机
+            }
+        }
         
-        if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_1)
-        {
-           
-            i1++;
-            if(i1 % 2 == 0)
-            {
-                
-                i1 = 0;
-                g_run_flag1 = 1;                             /* ��־λ��һ */
-                g_stepperx.pulse_count--;                    /* ÿһ�������������-- */
-                if(g_stepperx.dir == CW)
-                {
-                   g_stepperx.add_pulse_count++;             /* ����λ��++ */
-                }else
-                {
-                   g_stepperx.add_pulse_count--;             /* ����λ��-- */
-                }
-
-                if(g_stepperx.pulse_count<=0)                /* ������������0��ʱ�� ������Ҫ���͵������������ɣ�ֹͣ��ʱ����� */
-                {
-                    stepper_stop();          /* ֹͣ�ӿ���� */
-                    g_run_flag1=0;
-                }
-            }
-            /*��ȡ��ǰ����*/
-            g_count_val1 =__HAL_TIM_GetCompare(&htim2,TIM_CHANNEL_1);
-            __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, (g_count_val1 + 150)%0XFFFF);
-        }
-        if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_4)
-        {
-            
-            i4++;
-            if(i4 % 2 == 0)
-            {
-                i4 = 0;
-                g_run_flag2 = 1;                             /* ��־λ��һ */
-                g_steppery.pulse_count--;                    /* ÿһ�������������-- */
-                if(g_steppery.dir == CW)
-                {
-                   g_steppery.add_pulse_count++;             /* ����λ��++ */
-                }else
-                {
-                   g_steppery.add_pulse_count--;             /* ����λ��-- */
-                }
-
-                if(g_steppery.pulse_count<=0)                /* ������������0��ʱ�� ������Ҫ���͵������������ɣ�ֹͣ��ʱ����� */
-                {
-                    stepper_stop();          /* ֹͣ�ӿ���� */
-                    g_run_flag2=0;
-                }
-            }
-            /*��ȡ��ǰ����*/
-            g_count_val2 = __HAL_TIM_GET_COUNTER(&htim2);
-            __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, (g_count_val2 + 150)%0XFFFF);
-            
-        }
-
+        // 只需要更新一个通道的比较值，因为是共用PWM
+        g_count_val1 = __HAL_TIM_GetCompare(&htim2,TIM_CHANNEL_1);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, (g_count_val1 + 150)%0XFFFF);
     }
-
 }
 
 

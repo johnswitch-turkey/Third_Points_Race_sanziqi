@@ -73,24 +73,7 @@ enum dir
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void stepper_stop(void);
+void stepper_start(uint8_t dir1, uint8_t dir2);
 
 #endif

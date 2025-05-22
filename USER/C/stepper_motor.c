@@ -11,10 +11,10 @@ STEPPER_MOTOR g_stepperx = {0};
 STEPPER_MOTOR g_steppery = {0};
 
 /**
- * @brief       ¿ªÆô²½½øµç»ú
- * @param       motor_num: ²½½øµç»ú½Ó¿ÚÐòºÅ
- * @param       dir      : ²½½øµç»úÐý×ª·½Ïò
- * @retval      ÎÞ
+ * @brief       ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param       motor_num: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½
+ * @param       dir      : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
+ * @retval      ï¿½ï¿½
  */
 void stepper_start(uint8_t dir1, uint8_t dir2)
 {
@@ -46,22 +46,22 @@ void stepper_start(uint8_t dir1, uint8_t dir2)
 	}
 
 /**
- * @brief       ¹Ø±Õ²½½øµç»ú
- * @param       motor_num: ²½½øµç»ú½Ó¿ÚÐòºÅ
- * @retval      ÎÞ
+ * @brief       ï¿½Ø±Õ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param       motor_num: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½
+ * @retval      ï¿½ï¿½
  */
-void stepper_stop()
+void stepper_stop(void)
 {
 //    switch(motor_num)
 //    {
 //        case STEPPER_MOTOR_1 :
 //        {
-            HAL_TIM_OC_Stop_IT(&htim2, TIM_CHANNEL_1);     /* ¹Ø±Õ¶ÔÓ¦PWMÍ¨µÀ */
+            HAL_TIM_OC_Stop_IT(&htim2, TIM_CHANNEL_1);     /* ï¿½Ø±Õ¶ï¿½Ó¦PWMÍ¨ï¿½ï¿½ */
 //            break;
 //        }
 //        case STEPPER_MOTOR_2 :
 //        {
-            HAL_TIM_OC_Stop_IT(&htim2, TIM_CHANNEL_2);     /* ¹Ø±Õ¶ÔÓ¦PWMÍ¨µÀ */
+            HAL_TIM_OC_Stop_IT(&htim2, TIM_CHANNEL_2);     /* ï¿½Ø±Õ¶ï¿½Ó¦PWMÍ¨ï¿½ï¿½ */
 //            break;
 //        }
 
@@ -101,11 +101,3 @@ void stepper_stop()
 //    else stepper_start(dir1,dir2);
 //}
 
-
-
-
-void control_t(uint32_t x_distance,uint32_t y_distance){
-		
-
-
-}
