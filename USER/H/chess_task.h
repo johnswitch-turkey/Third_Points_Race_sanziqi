@@ -14,7 +14,14 @@ typedef struct{
 
 extern volatile uint8_t rotate_flag;
 
+// void Chess_Task(void);
 
+//void Chess_Task1(uint8_t chess_ID);
+//void Chess_Task2(uint8_t chess_ID,uint8_t board_ID);
+//void Chess_Task3(uint8_t chess_ID,uint8_t board_ID);
+//void Chess_Task4(uint8_t board_ID);
+//void Chess_Task5(uint8_t board_ID);
+//void Chess_Task6(uint8_t board_ID1, uint8_t board_ID2);
 
 #endif
 
