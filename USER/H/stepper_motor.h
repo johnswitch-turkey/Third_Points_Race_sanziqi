@@ -18,7 +18,7 @@ typedef struct
     int angle ;                             // �Ƕ�
     uint8_t dir;                            // ����
     volatile uint32_t pulse_count;          // ���λ��
-    volatile uint16_t add_pulse_count;           // ����λ��  
+    volatile uint32_t add_pulse_count ;           // ����λ��  
 } STEPPER_MOTOR;
 
 /* ����������� */

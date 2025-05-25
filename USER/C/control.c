@@ -11,7 +11,11 @@
 uint8_t st1_dir;
 uint8_t st2_dir;
 
+static int32_t x;
+static int32_t y;
 
+int32_t current_x;
+int32_t target_x;
 
 typedef struct {
    uint32_t x;      // X��Ŀ��λ��
@@ -63,6 +67,10 @@ Position chess_position[10]=
 
 uint8_t Board_ID;
 uint8_t Chess_ID;
+uint8_t chessIndex;
+uint8_t boardIndex;
+Position start;
+Position end;
 void Place_Chess(void)
 {	
 	Command_t get_cmd[2] = {0};
@@ -79,12 +87,13 @@ void Place_Chess(void)
       return;
       }
       // �������ӵ���ʼλ������������Chess_ID��1��ʼ��
-      uint8_t chessIndex = Chess_ID ;
-      uint8_t boardIndex = Board_ID ;
+      chessIndex = Chess_ID ;
+      boardIndex = Board_ID ;
 
-      Position start = {chess_position[chessIndex].x, chess_position[chessIndex].y};   //����λ��
-      Position end = {board_position[boardIndex].x, board_position[boardIndex].y};     //����λ��
-   
+//      start = {chess_position[chessIndex].x, chess_position[chessIndex].y};   //����λ��
+	  start = chess_position[chessIndex];
+//      end = {board_position[boardIndex].x, board_position[boardIndex].y};     //����λ��
+      end = board_position[boardIndex];
       if(rotate_flag == 1)  //������ת�������λ��
       {
          end.x = board_rotate_position[boardIndex].x;
@@ -93,35 +102,35 @@ void Place_Chess(void)
 
       // 1. �ƶ���е�۵����Ӵ��λ��
       control_t(start.x, start.y);
-      Delay_Timer(180);
-      while(!checkDelayTimer());
+//      Delay_Timer(180);
+//      while(!checkDelayTimer());
 
    
       // 2. ִ��ץȡ��������ʵ�ּ�צ���ƣ�
       Servo_Down();
       Magnet_On();
-      Delay_Timer(100);
-      while(!checkDelayTimer());
+//      Delay_Timer(100);
+//      while(!checkDelayTimer());
       Servo_Up();
-      Delay_Timer(100);
-      while(!checkDelayTimer());
+//      Delay_Timer(100);
+//      while(!checkDelayTimer());
    
       // 3. �ƶ���е�۵�Ŀ������λ��
       control_t(end.x,end.y);
-      Delay_Timer(150);
-      while(!checkDelayTimer());
+//      Delay_Timer(150);
+//      while(!checkDelayTimer());
 
       // 4. ִ�з��ö���
       Servo_Down();
-      Delay_Timer(150);
-      while(!checkDelayTimer());
+//      Delay_Timer(150);
+//      while(!checkDelayTimer());
       Magnet_Off();
       Servo_Up();
    
       // 5. ���ػ���λ��
       control_to_zero();
-      Delay_Timer(100);
-      while(!checkDelayTimer());
+//      Delay_Timer(100);
+//      while(!checkDelayTimer());
 //    LED_Task_On();
    }
 
@@ -132,14 +141,19 @@ void Place_Chess(void)
 
 
 
-void control_t(uint32_t x_talget,uint32_t y_target){
 
-      if (x_talget > 20000 || y_target > 20000) {
+void control_t(uint32_t x_target,uint32_t y_target){
+
+      if (x_target > 20000 || y_target > 20000) {
          return; // ���Ŀ��λ���Ƿ�����Ч��Χ��
       }  
-
-	  int32_t x = x_talget - g_stepperx.add_pulse_count; // ���x�����ֵ
-      int32_t y = y_target - g_steppery.add_pulse_count; // ���y�����ֵ
+		
+	  current_x = (int32_t)g_stepperx.add_pulse_count;
+	  target_x = (int32_t)x_target;
+	  
+	  
+	  x = target_x - current_x; // ���x�����ֵ
+      y = y_target - g_steppery.add_pulse_count; // ���y�����ֵ
       
       g_stepperx.dir = (x > 0) ? CW : CCW; // ����x����
       g_steppery.dir = (y > 0) ? CW : CCW; // ����y����
@@ -165,7 +179,7 @@ void control_t(uint32_t x_talget,uint32_t y_target){
          st2_dir = 0; 
       }
 	  
-	  stepper_start(st1_dir,st2_dir);
+	  
 	  
 
 
@@ -177,7 +191,8 @@ void control_t(uint32_t x_talget,uint32_t y_target){
       g_stepperx.pulse_count = x_distance /  STEP_R * 509;  // ����x�������������
       // g_steppery.pulse_count = y_distance / 2 / PI / STEP_R *200*16;
       g_steppery.pulse_count = y_distance /  STEP_R * 509;  // ����y�������������
-
+	  
+	  stepper_start(st1_dir,st2_dir);
    
 
 }
@@ -187,17 +202,17 @@ void control_to_zero(void)
 {
     // 1. �ƶ���е�۵����Ӵ��λ��
    control_t(0, 0);
-   Delay_Timer(180);
-   while(!checkDelayTimer());
+//   Delay_Timer(180);
+//   while(!checkDelayTimer());
    
    // 2. ִ��ץȡ��������ʵ�ּ�צ���ƣ�
    Servo_Down();
    Magnet_On();
-   Delay_Timer(100);
-   while(!checkDelayTimer());
+//   Delay_Timer(100);
+//   while(!checkDelayTimer());
    Servo_Up();
-   Delay_Timer(100);
-   while(!checkDelayTimer());
+//   Delay_Timer(100);
+//   while(!checkDelayTimer());
 }
 
 

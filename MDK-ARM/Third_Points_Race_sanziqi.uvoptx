@@ -157,9 +157,25 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>26</LineNumber>
+          <LineNumber>155</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134223598</Address>
+          <Address>134226650</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\USER\C\control.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\Third_Points_Race_sanziqi\../USER/C/control.c\155</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>53</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134222442</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -168,7 +184,23 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\USER\C\control_logic.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Third_Points_Race_sanziqi\../USER/C/control_logic.c\26</Expression>
+          <Expression>\\Third_Points_Race_sanziqi\../USER/C/control_logic.c\53</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>53</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134222452</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\USER\C\control_logic.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\Third_Points_Race_sanziqi\../USER/C/control_logic.c\53</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -181,6 +213,36 @@
           <count>1</count>
           <WinNumber>1</WinNumber>
           <ItemText>delayTimer.counter</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>g_stepperx.add_pulse_count</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>chessIndex</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Chess_ID</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>start.x</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>x</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>x_talget</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>

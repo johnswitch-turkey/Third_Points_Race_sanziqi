@@ -23,18 +23,20 @@ void stepper_start(uint8_t dir1, uint8_t dir2)
 //        case STEPPER_MOTOR_1 :
 //        {
             ST1_DIR(dir1);
+			ST2_DIR(dir2);
 //            if(g_atimx_oc_chy_handle.OCMode == TIM_OCMODE_TOGGLE)
 //            {
-                HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1); 
+                HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
+				HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_2);
 //            }
 //            break;
 //        }
 //        case STEPPER_MOTOR_2 :
 //        {
-            ST2_DIR(dir2);
+            
 //            if(g_atimx_oc_chy_handle.OCMode == TIM_OCMODE_TOGGLE)
 //            {
-                HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_2); 
+                 
 //            }
 //            break;
 ////        }
