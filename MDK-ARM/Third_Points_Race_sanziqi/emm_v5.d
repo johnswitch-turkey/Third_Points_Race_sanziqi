@@ -1,5 +1,5 @@
-third_points_race_sanziqi/stm32f4xx_hal_exti.o: \
-  ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_exti.c \
+third_points_race_sanziqi/emm_v5.o: ..\USER\Devices\Emm_V5.c \
+  ..\USER\Devices\Emm_V5.h ..\USER\bsp\bsp_uart.h ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -29,4 +29,8 @@ third_points_race_sanziqi/stm32f4xx_hal_exti.o: \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
+  ..\Core\Inc\usart.h ..\Core\Inc\main.h ..\Core\Inc\dma.h \
+  D:\Programs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  D:\Programs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
+  ..\USER\bsp\sys.h

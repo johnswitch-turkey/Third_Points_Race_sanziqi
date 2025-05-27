@@ -1,5 +1,5 @@
-third_points_race_sanziqi/stm32f4xx_hal_exti.o: \
-  ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_exti.c \
+third_points_race_sanziqi/bsp_dwt.o: ..\USER\bsp\bsp_dwt.c \
+  ..\USER\bsp\bsp_dwt.h ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \

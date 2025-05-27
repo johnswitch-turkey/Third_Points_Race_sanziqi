@@ -2,6 +2,7 @@
 "third_points_race_sanziqi\startup_stm32f401xc.o"
 "third_points_race_sanziqi\main.o"
 "third_points_race_sanziqi\gpio.o"
+"third_points_race_sanziqi\dma.o"
 "third_points_race_sanziqi\tim.o"
 "third_points_race_sanziqi\usart.o"
 "third_points_race_sanziqi\stm32f4xx_it.o"
@@ -30,6 +31,11 @@
 "third_points_race_sanziqi\uart.o"
 "third_points_race_sanziqi\servo.o"
 "third_points_race_sanziqi\decode.o"
+"third_points_race_sanziqi\bsp_dwt.o"
+"third_points_race_sanziqi\bsp_uart.o"
+"third_points_race_sanziqi\sys.o"
+"third_points_race_sanziqi\emm_v5.o"
+"third_points_race_sanziqi\emm42_uart.o"
 --strict --scatter "Third_Points_Race_sanziqi\Third_Points_Race_sanziqi.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
