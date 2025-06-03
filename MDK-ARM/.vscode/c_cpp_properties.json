@@ -10,6 +10,8 @@
                 "d:\\STM32_Projects\\Third_Points_Race_sanziqi\\Drivers\\CMSIS\\Include",
                 "d:\\STM32_Projects\\Third_Points_Race_sanziqi\\USER\\C",
                 "d:\\STM32_Projects\\Third_Points_Race_sanziqi\\USER\\H",
+                "d:\\STM32_Projects\\Third_Points_Race_sanziqi\\USER\\bsp",
+                "d:\\STM32_Projects\\Third_Points_Race_sanziqi\\USER\\Devices",
                 "D:\\Programs\\Keil_v5\\ARM\\ARMCLANG\\include",
                 "D:\\Programs\\Keil_v5\\ARM\\ARMCLANG\\include\\arm_linux",
                 "D:\\Programs\\Keil_v5\\ARM\\ARMCLANG\\include\\arm_linux_compat",

@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F401xC</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../USER/C;../USER/H;..\USER\bsp;..\USER\Devices</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../USER/C;../USER/H;../USER/bsp;../USER/Devices</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -767,6 +767,11 @@
               <FileType>1</FileType>
               <FilePath>..\USER\C\decode.c</FilePath>
             </File>
+            <File>
+              <FileName>system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\C\system.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -806,6 +811,11 @@
               <FileName>decode.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\USER\H\decode.h</FilePath>
+            </File>
+            <File>
+              <FileName>system.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\USER\H\system.h</FilePath>
             </File>
           </Files>
         </Group>
