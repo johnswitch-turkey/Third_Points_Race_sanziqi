@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Third_Points_Race_sanziqi\Third_Points_Race_sanziqi.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Third_Points_Race_sanziqi\Third_Points_Race_sanziqi.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Wed Jun  4 11:30:31 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Wed Jun  4 16:02:40 2025
 <BR><P>
 <H3>Maximum Stack Usage =        604 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -452,10 +452,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_command
 </UL>
 
-<P><STRONG><a name="[ef]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
+<P><STRONG><a name="[ee]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[138]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
@@ -682,10 +682,10 @@ Global Symbols
 <P><STRONG><a name="[88]"></a>_scanf_really_hex_real</STRONG> (Thumb, 786 bytes, Stack size 80 bytes, scanf_hexfp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = _scanf_really_hex_real &rArr; __support_ldexp &rArr; __hardfp_ldexp &rArr; __mathlib_dbl_underflow &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_chval
+<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_chval
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__support_ldexp
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_narrow
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_hex_real
 </UL>
@@ -792,7 +792,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f401xc.o(RESET)
 </UL>
-<P><STRONG><a name="[f5]"></a>DWT_Init</STRONG> (Thumb, 140 bytes, Stack size 4 bytes, bsp_dwt.o(.text.DWT_Init))
+<P><STRONG><a name="[f4]"></a>DWT_Init</STRONG> (Thumb, 140 bytes, Stack size 4 bytes, bsp_dwt.o(.text.DWT_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = DWT_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -806,12 +806,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart2_SendCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_process
+<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_process
 </UL>
 
 <P><STRONG><a name="[d3]"></a>Error_Handler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, main.o(.text.Error_Handler))
 <BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART2_UART_Init
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM4_Init
@@ -865,13 +865,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_process
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Place_Chess_Process
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_process
 </UL>
 
-<P><STRONG><a name="[ed]"></a>HAL_IncTick</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_hal.o(.text.HAL_IncTick))
+<P><STRONG><a name="[ec]"></a>HAL_IncTick</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_hal.o(.text.HAL_IncTick))
 <BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
@@ -937,7 +937,7 @@ Global Symbols
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[aa]"></a>HAL_RCC_GetHCLKFreq</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_hal_rcc.o(.text.HAL_RCC_GetHCLKFreq))
@@ -974,7 +974,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[9f]"></a>HAL_SYSTICK_Config</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, stm32f4xx_hal_cortex.o(.text.HAL_SYSTICK_Config))
@@ -1027,7 +1027,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
 </UL>
 
-<P><STRONG><a name="[f6]"></a>HAL_TIM_Base_Start</STRONG> (Thumb, 198 bytes, Stack size 12 bytes, stm32f4xx_hal_tim.o(.text.HAL_TIM_Base_Start))
+<P><STRONG><a name="[f5]"></a>HAL_TIM_Base_Start</STRONG> (Thumb, 198 bytes, Stack size 12 bytes, stm32f4xx_hal_tim.o(.text.HAL_TIM_Base_Start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = HAL_TIM_Base_Start
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1061,7 +1061,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b7]"></a>HAL_TIM_IRQHandler</STRONG> (Thumb, 546 bytes, Stack size 24 bytes, stm32f4xx_hal_tim.o(.text.HAL_TIM_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
+<BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_TriggerCallback
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_PulseFinishedCallback
@@ -1142,7 +1142,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[bb]"></a>HAL_TIM_PeriodElapsedCallback</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, control_logic.o(.text.HAL_TIM_PeriodElapsedCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
+<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Robot_Process
@@ -1164,14 +1164,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f3]"></a>HAL_UARTEx_RxEventCallback</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, stm32f4xx_hal_uart.o(.text.HAL_UARTEx_RxEventCallback))
+<P><STRONG><a name="[f2]"></a>HAL_UARTEx_RxEventCallback</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, stm32f4xx_hal_uart.o(.text.HAL_UARTEx_RxEventCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_UARTEx_RxEventCallback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMARxHalfCplt
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAReceiveCplt
 </UL>
 
-<P><STRONG><a name="[f2]"></a>HAL_UART_ErrorCallback</STRONG> (Thumb, 8 bytes, Stack size 4 bytes, stm32f4xx_hal_uart.o(.text.HAL_UART_ErrorCallback))
+<P><STRONG><a name="[f1]"></a>HAL_UART_ErrorCallback</STRONG> (Thumb, 8 bytes, Stack size 4 bytes, stm32f4xx_hal_uart.o(.text.HAL_UART_ErrorCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = HAL_UART_ErrorCallback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAError
@@ -1214,7 +1214,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAReceiveCplt
 </UL>
 
-<P><STRONG><a name="[f4]"></a>HAL_UART_RxHalfCpltCallback</STRONG> (Thumb, 8 bytes, Stack size 4 bytes, stm32f4xx_hal_uart.o(.text.HAL_UART_RxHalfCpltCallback))
+<P><STRONG><a name="[f3]"></a>HAL_UART_RxHalfCpltCallback</STRONG> (Thumb, 8 bytes, Stack size 4 bytes, stm32f4xx_hal_uart.o(.text.HAL_UART_RxHalfCpltCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = HAL_UART_RxHalfCpltCallback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMARxHalfCplt
@@ -1340,26 +1340,31 @@ Global Symbols
 <P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(.text.PendSV_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f401xc.o(RESET)
 </UL>
-<P><STRONG><a name="[e6]"></a>Place_Chess_Process</STRONG> (Thumb, 584 bytes, Stack size 32 bytes, control.o(.text.Place_Chess_Process))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Place_Chess_Process &rArr; Magnet_On &rArr; HAL_GPIO_WritePin
+<P><STRONG><a name="[e6]"></a>Place_Chess_Process</STRONG> (Thumb, 704 bytes, Stack size 24 bytes, control.o(.text.Place_Chess_Process))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Place_Chess_Process &rArr; Magnet_On &rArr; HAL_GPIO_WritePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;is_control_complete
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_start
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_is_busy
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_Up
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_Down
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Magnet_On
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Magnet_Off
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_start
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_is_busy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Robot_Process
 </UL>
 
-<P><STRONG><a name="[cc]"></a>Robot_Process</STRONG> (Thumb, 124 bytes, Stack size 16 bytes, system.o(.text.Robot_Process))
-<BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
+<P><STRONG><a name="[f6]"></a>Place_Chess_Start</STRONG> (Thumb, 236 bytes, Stack size 4 bytes, control.o(.text.Place_Chess_Start))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Place_Chess_Start
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_process
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Place_Chess_Process
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[cc]"></a>Robot_Process</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, system.o(.text.Robot_Process))
+<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Place_Chess_Process
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_t_process
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 </UL>
@@ -1378,17 +1383,17 @@ Global Symbols
 <P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32f4xx_it.o(.text.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SysTick_Handler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f401xc.o(RESET)
 </UL>
-<P><STRONG><a name="[ee]"></a>SystemClock_Config</STRONG> (Thumb, 194 bytes, Stack size 88 bytes, main.o(.text.SystemClock_Config))
+<P><STRONG><a name="[ed]"></a>SystemClock_Config</STRONG> (Thumb, 194 bytes, Stack size 88 bytes, main.o(.text.SystemClock_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; NVIC_EncodePriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1397,28 +1402,28 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f401xc.o(.text)
 </UL>
 <P><STRONG><a name="[1f]"></a>TIM1_UP_TIM10_IRQHandler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f4xx_it.o(.text.TIM1_UP_TIM10_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = TIM1_UP_TIM10_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
+<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = TIM1_UP_TIM10_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f401xc.o(RESET)
 </UL>
 <P><STRONG><a name="[22]"></a>TIM2_IRQHandler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f4xx_it.o(.text.TIM2_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = TIM2_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
+<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = TIM2_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f401xc.o(RESET)
 </UL>
 <P><STRONG><a name="[23]"></a>TIM3_IRQHandler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f4xx_it.o(.text.TIM3_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = TIM3_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
+<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = TIM3_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f401xc.o(RESET)
 </UL>
 <P><STRONG><a name="[24]"></a>TIM4_IRQHandler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f4xx_it.o(.text.TIM4_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = TIM4_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
+<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = TIM4_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; Robot_Process &rArr; control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
@@ -1467,12 +1472,12 @@ Global Symbols
 <P><STRONG><a name="[5]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(.text.UsageFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f401xc.o(RESET)
 </UL>
-<P><STRONG><a name="[eb]"></a>control_t_is_busy</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, control.o(.text.control_t_is_busy))
+<P><STRONG><a name="[e8]"></a>control_t_is_busy</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, control.o(.text.control_t_is_busy))
 <BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Place_Chess_Process
 </UL>
 
-<P><STRONG><a name="[ec]"></a>control_t_process</STRONG> (Thumb, 358 bytes, Stack size 40 bytes, control.o(.text.control_t_process))
-<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
+<P><STRONG><a name="[eb]"></a>control_t_process</STRONG> (Thumb, 414 bytes, Stack size 32 bytes, control.o(.text.control_t_process))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = control_t_process &rArr; Emm_V5_Pos_Control &rArr; usart2_SendCmd &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Emm_V5_Pos_Control
@@ -1480,20 +1485,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Robot_Process
 </UL>
 
-<P><STRONG><a name="[e7]"></a>control_t_start</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, control.o(.text.control_t_start))
+<P><STRONG><a name="[e7]"></a>control_t_start</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, control.o(.text.control_t_start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = control_t_start
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Place_Chess_Process
 </UL>
 
-<P><STRONG><a name="[e8]"></a>is_control_complete</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, control.o(.text.is_control_complete))
-<BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Place_Chess_Process
-</UL>
-
-<P><STRONG><a name="[5e]"></a>main</STRONG> (Thumb, 206 bytes, Stack size 56 bytes, main.o(.text.main))
+<P><STRONG><a name="[5e]"></a>main</STRONG> (Thumb, 244 bytes, Stack size 56 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = main &rArr; MX_TIM4_Init &rArr; HAL_TIM_Base_Init &rArr; HAL_TIM_Base_MspInit &rArr; HAL_NVIC_SetPriority &rArr; NVIC_EncodePriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Place_Chess_Start
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART2_UART_Init
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM4_Init
@@ -1505,9 +1507,9 @@ Global Symbols
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_ReceiveToIdle_DMA
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Init
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -1922,9 +1924,9 @@ Local Symbols
 <P><STRONG><a name="[4b]"></a>UART_DMAError</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, stm32f4xx_hal_uart.o(.text.UART_DMAError))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = UART_DMAError &rArr; UART_EndRxTransfer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndTxTransfer
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndTxTransfer
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_uart.o(.text.UART_Start_Receive_DMA)
 </UL>
@@ -1932,26 +1934,26 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 604<LI>Call Chain = UART_DMAReceiveCplt &rArr; HAL_UART_RxCpltCallback &rArr; parse_command &rArr; sscanf &rArr; __vfscanf_char &rArr; __vfscanf &rArr; _scanf_real &rArr; _scanf_really_real &rArr; _fp_value &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_uart.o(.text.UART_Start_Receive_DMA)
 </UL>
 <P><STRONG><a name="[4a]"></a>UART_DMARxHalfCplt</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, stm32f4xx_hal_uart.o(.text.UART_DMARxHalfCplt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART_DMARxHalfCplt &rArr; HAL_UARTEx_RxEventCallback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxHalfCpltCallback
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxHalfCpltCallback
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_uart.o(.text.UART_Start_Receive_DMA)
 </UL>
-<P><STRONG><a name="[f1]"></a>UART_EndRxTransfer</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, stm32f4xx_hal_uart.o(.text.UART_EndRxTransfer))
+<P><STRONG><a name="[f0]"></a>UART_EndRxTransfer</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, stm32f4xx_hal_uart.o(.text.UART_EndRxTransfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART_EndRxTransfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAError
 </UL>
 
-<P><STRONG><a name="[f0]"></a>UART_EndTxTransfer</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_hal_uart.o(.text.UART_EndTxTransfer))
+<P><STRONG><a name="[ef]"></a>UART_EndTxTransfer</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_hal_uart.o(.text.UART_EndTxTransfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_EndTxTransfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAError
@@ -1971,7 +1973,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = UART_WaitOnFlagUntilTimeout &rArr; UART_EndRxTransfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 </UL>
@@ -1988,11 +1990,11 @@ Local Symbols
 <P><STRONG><a name="[74]"></a>_fp_value</STRONG> (Thumb, 588 bytes, Stack size 96 bytes, scanf_fp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = _fp_value &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
-<BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee_status
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_emuld
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_edivd
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
 </UL>

@@ -4,6 +4,8 @@
 #include "control.h"
 #include "usart.h"
 
+#include "system.h"
+
 #include "stm32f4xx_hal.h"
 
 extern TIM_HandleTypeDef htim2;
@@ -23,17 +25,19 @@ DelayTimer delayTimer = {0};
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if(htim == &htim3)//1ms�ж�
+    // if(htim == &htim3)//1ms�ж�
+    // {
+    //     if(delayTimer.isRunning && delayTimer.counter > 0)
+    //     {
+    //         delayTimer.counter --;
+    //     }			
+	// 			HAL_TIM_Base_Start_IT(&htim3);
+    // }
+    if(htim == &htim2)//10ms中断
     {
-        if(delayTimer.isRunning && delayTimer.counter > 0)
-        {
-            delayTimer.counter --;
-        }
-    }
-    if(htim == &htim2)//10ms�ж�
-    {
-        Place_Chess();
-        // Chess_Task();//��������������
+            Robot_Process();
+			
+			HAL_TIM_Base_Start_IT(&htim2);
     }
 
 

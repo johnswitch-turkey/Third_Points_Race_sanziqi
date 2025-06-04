@@ -33,4 +33,5 @@ third_points_race_sanziqi/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Core\Inc\usart.h ..\Core\Inc\gpio.h ..\USER\bsp\bsp_uart.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
-  ..\USER\Devices\Emm_V5.h ..\USER\bsp\sys.h ..\USER\bsp\bsp_dwt.h
+  ..\USER\Devices\Emm_V5.h ..\USER\bsp\sys.h ..\USER\bsp\bsp_dwt.h \
+  ..\USER\H\system.h ..\USER\H\control.h

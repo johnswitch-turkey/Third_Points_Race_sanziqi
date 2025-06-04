@@ -18,13 +18,17 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "bsp_uart.h"
+#include "Emm_V5.h"
+#include "bsp_dwt.h"
+#include "system.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +49,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+extern DMA_HandleTypeDef hdma_usart1_rx;
+extern DMA_HandleTypeDef hdma_usart2_rx;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -88,27 +93,41 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_USART1_UART_Init();
   MX_TIM2_Init();
   MX_TIM1_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-// 锟斤拷锟叫讹拷
-	HAL_TIM_Base_Start(&htim1);
+	DWT_Init(72);
+
+  HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rx2_buffer, DMA_BUFFER); 
+  HAL_UARTEx_ReceiveToIdle_DMA(&huart2, rx2_buffer, DMA_BUFFER); 
+  
+  __HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);
+  __HAL_DMA_DISABLE_IT(&hdma_usart2_rx, DMA_IT_HT);    
+
 	HAL_TIM_Base_Start_IT(&htim2);
 	HAL_TIM_Base_Start_IT(&htim3);
+	
 	HAL_TIM_Base_Start(&htim4);
 	HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
+	
+	// 到时候放到uart中断里面一起改掉
+	robot.system_state = SYSTEM_PLACING;
+	place_ctrl.is_busy = 1;
+	place_ctrl.state = PLACE_MOVE_TO_CHESS;
+	Place_Chess_Start(2, 3);
 
-
-	HAL_UART_Receive_IT(&huart1, &rx_byte, 1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

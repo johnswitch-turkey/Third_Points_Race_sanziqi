@@ -57,22 +57,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define MA_STEP_Pin GPIO_PIN_0
-#define MA_STEP_GPIO_Port GPIOA
-#define MA_DIR_Pin GPIO_PIN_1
-#define MA_DIR_GPIO_Port GPIOA
-#define MB_DIR_Pin GPIO_PIN_2
-#define MB_DIR_GPIO_Port GPIOA
-#define MAGNET_Pin GPIO_PIN_3
+#define MAGNET_Pin GPIO_PIN_4
 #define MAGNET_GPIO_Port GPIOA
-#define MA_EN_Pin GPIO_PIN_1
-#define MA_EN_GPIO_Port GPIOB
-#define MB_EN_Pin GPIO_PIN_2
-#define MB_EN_GPIO_Port GPIOB
-#define MB_STEP_Pin GPIO_PIN_3
-#define MB_STEP_GPIO_Port GPIOB
-#define SERVO_Pin GPIO_PIN_6
-#define SERVO_GPIO_Port GPIOB
+#define Servo_Pin GPIO_PIN_6
+#define Servo_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

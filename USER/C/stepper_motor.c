@@ -1,8 +1,4 @@
 
-
-
-
-
 #include "stepper_motor.h"
 
 extern TIM_HandleTypeDef htim2;

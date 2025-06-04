@@ -4,8 +4,6 @@
 
 extern TIM_HandleTypeDef htim4;
 
-
-
 void Servo_Down(){
     __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, SERVO_DOWN_POSITION); 
 }
