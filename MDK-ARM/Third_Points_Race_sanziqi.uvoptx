@@ -157,22 +157,6 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>137</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134245570</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\USER\C\decode.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\Third_Points_Race_sanziqi\../USER/C/decode.c\137</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
           <LineNumber>216</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>134239864</Address>
@@ -289,6 +273,26 @@
           <count>9</count>
           <WinNumber>2</WinNumber>
           <ItemText>dst_idx</ItemText>
+        </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>\\Third_Points_Race_sanziqi\../Core/Src/usart.c\temp_count</ItemText>
+        </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>\\Third_Points_Race_sanziqi\../USER/C/decode.c\parse_count_err</ItemText>
+        </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>parse_count</ItemText>
+        </Ww>
+        <Ww>
+          <count>13</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>\\Third_Points_Race_sanziqi\../USER/C/decode.c\parse_count_err</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>

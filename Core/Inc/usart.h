@@ -55,6 +55,8 @@ extern uint8_t  rx_byte;                 // ÿ���жϽ���һ����
 static char rx_buffer[RX_BUFFER_SIZE];
 static uint8_t  rx_index ;            // ��ǰ�Ѵ�ŵ��ֽ�����������
 extern uint8_t parse_command_ready;   //�Ƿ��������������ı��λ
+
+extern uint8_t temp_count;
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

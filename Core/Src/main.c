@@ -29,6 +29,7 @@
 #include "Emm_V5.h"
 #include "bsp_dwt.h"
 #include "system.h"
+#include "decode.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,6 +62,11 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+Command_t temp_cmd;
+	uint8_t src_idx = 0;
+	uint8_t dst_idx = 0;
+	uint8_t res = 0;
+	uint8_t count = 0;
 
 /* USER CODE END 0 */
 
@@ -72,6 +78,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	
 
   /* USER CODE END 1 */
 
@@ -103,23 +110,25 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	DWT_Init(72);
 
-  HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rx2_buffer, DMA_BUFFER); 
+  //HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rx2_buffer, DMA_BUFFER); 
   HAL_UARTEx_ReceiveToIdle_DMA(&huart2, rx2_buffer, DMA_BUFFER); 
   
-  __HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);
-  __HAL_DMA_DISABLE_IT(&hdma_usart2_rx, DMA_IT_HT);    
-
+  //__HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);
+  __HAL_DMA_DISABLE_IT(&hdma_usart2_rx, DMA_IT_HT);
+	
+	HAL_UART_Receive_IT(&huart1, &rx_byte, 1);
+	
 	HAL_TIM_Base_Start_IT(&htim2);
 	HAL_TIM_Base_Start_IT(&htim3);
 	
 	HAL_TIM_Base_Start(&htim4);
 	HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
 	
-	// µ½Ê±ºò·Åµ½uartÖÐ¶ÏÀïÃæÒ»Æð¸Äµô
-	robot.system_state = SYSTEM_PLACING;
-	place_ctrl.is_busy = 1;
-	place_ctrl.state = PLACE_MOVE_TO_CHESS;
-	Place_Chess_Start(2, 3);
+	// ï¿½ï¿½Ê±ï¿½ï¿½Åµï¿½uartï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Äµï¿½
+//	robot.system_state = SYSTEM_PLACING;
+//	place_ctrl.is_busy = 1;
+//	place_ctrl.state = PLACE_MOVE_TO_CHESS;
+//	Place_Chess_Start(2, 3);
 
   /* USER CODE END 2 */
 
@@ -131,6 +140,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+		res = dequeue_command(&temp_cmd,0);
+		if(res){
+		src_idx = temp_cmd.src;
+		dst_idx = temp_cmd.dst;
+			count++;
+		}
   }
   /* USER CODE END 3 */
 }
