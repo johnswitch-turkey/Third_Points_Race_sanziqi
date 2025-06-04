@@ -33,6 +33,7 @@ third_points_race_sanziqi/control.o: ..\USER\C\control.c \
   ..\USER\H\Control_logic.h ..\Core\Inc\tim.h ..\Core\Inc\main.h \
   ..\Core\Inc\gpio.h ..\USER\H\chess_task.h ..\USER\H\stepper_motor.h \
   ..\USER\H\servo.h ..\Core\Inc\usart.h ..\USER\H\decode.h \
+  ..\USER\H\system.h ..\USER\H\control.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   ..\USER\bsp\bsp_uart.h ..\Core\Inc\dma.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
