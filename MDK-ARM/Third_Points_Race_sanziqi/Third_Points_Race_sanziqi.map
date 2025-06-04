@@ -3833,7 +3833,7 @@ Image component sizes
         82          0          0          0        128       1560   bsp_uart.o
       1190         42          0         23         34       4034   control.o
        328          0          0          0          5       4658   control_logic.o
-       702          0         43          0         76       2309   decode.o
+       702          0         43          0         76       2308   decode.o
        114          0          0          0          0       2856   dma.o
        190          0          0          0          0       3973   emm_v5.o
        164          0          0          0          0       2142   gpio.o
@@ -3857,7 +3857,7 @@ Image component sizes
        756          0          0          0        371       7085   usart.o
 
     ----------------------------------------------------------------------
-     20846        108        512         36       2564     163684   Object Totals
+     20846        108        512         36       2564     163683   Object Totals
          0          0         32          0          0          0   (incl. Generated)
        106          0          1          4         16          0   (incl. Padding)
 
@@ -3970,8 +3970,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     31724        518        976         36       2660     166424   Grand Totals
-     31724        518        976         36       2660     166424   ELF Image Totals
+     31724        518        976         36       2660     166423   Grand Totals
+     31724        518        976         36       2660     166423   ELF Image Totals
      31724        518        976         36          0          0   ROM Totals
 
 ==============================================================================
