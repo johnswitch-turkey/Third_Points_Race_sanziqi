@@ -23,7 +23,7 @@ void Robot_Process(void)
             
         case SYSTEM_MOVING:
             // 处理电机移动任务
-            control_t_process(motor_ctrl.x_target, motor_ctrl.y_target);
+            control_t_process();
 //            if(!motor_ctrl.is_busy) {
 //                robot.system_state = SYSTEM_IDLE;
 //            }

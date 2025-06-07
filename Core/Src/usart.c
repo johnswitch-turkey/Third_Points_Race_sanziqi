@@ -24,7 +24,10 @@
 #include "string.h"
 #include "stdlib.h"
 
+#include <stdio.h>
 #include "decode.h"
+
+#include "control.h"
 
 /* ����ı������� UART �жϽ��գ� */
 uint8_t rx_byte;                 // ÿ���жϽ��յĵ��ֽ�
@@ -32,6 +35,13 @@ static char rx_buffer[RX_BUFFER_SIZE];
 static uint8_t rx_index = 0;
 
 uint8_t temp_count = 0;
+
+
+extern uint8_t Board_ID;
+extern uint8_t Chess_ID;
+
+extern uint8_t rotate_flag ; // 旋转标志
+extern uint8_t cheat_flag ; // 作弊标志
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -242,24 +252,61 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-    if (huart->Instance == USART1)
-    {
-        if ((rx_byte == '\n') || (rx_index >= RX_BUFFER_SIZE - 1))
-        {
-						temp_count++;
-            rx_buffer[rx_index] = '\0';         // ���ַ���ĩβ�� '\0'
-            parse_command(rx_buffer);           // ���� parse_command ���������
-            rx_index = 0;                       // �����������´δ浽 [0]
-        }
-        else
-        {
-            rx_buffer[rx_index++] = (char)rx_byte;
-        }
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+    if (huart->Instance == USART1) {
+        if (rx_byte == '\n' || rx_index >= RX_BUFFER_SIZE - 1) {
+            rx_buffer[rx_index] = '\0';  // 确保字符串终止
+            rx_index = 0;
 
-        /* �ٴ��������ֽ��жϽ��� */
-        HAL_UART_Receive_IT(&huart1, &rx_byte, 1);
+            // 直接解析并处理命令（不经过队列）
+            int piece_id, board_pos, need_rotate, is_cheating;
+            if (sscanf(rx_buffer, "from %d to %d %d %d", 
+                      &piece_id, &board_pos, &need_rotate, &is_cheating) == 4) {
+                // 参数校验
+
+                    Chess_ID = (uint8_t)piece_id;
+                    Board_ID = (uint8_t)board_pos;
+                    rotate_flag = (uint8_t)need_rotate;
+                    cheat_flag = (uint8_t)is_cheating;
+                    Place_Chess_Start(Chess_ID, Board_ID);  // 直接调用
+                
+            }
+        } else {
+            rx_buffer[rx_index++] = (char)rx_byte;  // 存储普通字符
+        }
+        HAL_UART_Receive_IT(&huart1, &rx_byte, 1);  // 重启接收
     }
 }
+
+
+
+//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+//{
+//    if (huart->Instance == USART1)
+//    {
+//        if ((rx_byte == '\n') || (rx_index >= RX_BUFFER_SIZE - 1))
+//        {
+////						temp_count++;
+//            rx_buffer[rx_index] = '\0';         // ���ַ���ĩβ�� '\0'
+//            parse_command(rx_buffer);           // ���� parse_command ���������
+//            rx_index = 0;		
+//						Command_t cmd;
+//						if (dequeue_command(&cmd)) {
+//							Chess_ID = cmd.piece_id;
+//							Board_ID = cmd.board_pos;
+//							rotate_flag = cmd.need_rotate;
+//							cheat_flag = cmd.is_cheating;
+//							Place_Chess_Start(Chess_ID, Board_ID);
+//						}
+//            
+//        }
+//        else
+//        {
+//            rx_buffer[rx_index++] = (char)rx_byte;
+//        }
+
+//        /* �ٴ��������ֽ��жϽ��� */
+//        HAL_UART_Receive_IT(&huart1, &rx_byte, 1);
+//    }
+//}
 /* USER CODE END 1 */

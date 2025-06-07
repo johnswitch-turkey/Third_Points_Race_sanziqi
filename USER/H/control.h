@@ -3,6 +3,12 @@
 
 #include "main.h"
 
+extern uint8_t Board_ID;
+extern uint8_t Chess_ID;
+
+extern uint8_t rotate_flag ; // 旋转标志
+extern uint8_t cheat_flag ; // 作弊标志
+
 typedef struct {
    uint32_t x;      
    uint32_t y;      
@@ -24,7 +30,9 @@ typedef enum {
     PLACE_SERVO_DOWN2,       // 舵机下降放置
     PLACE_WAIT_SERVO3,       // 等待舵机
     PLACE_MAGNET_OFF,        // 电磁铁关闭
+		PLACE_WAIT_MAGNET2,      //等待电磁铁关闭
     PLACE_SERVO_UP2,         // 舵机上升
+		PLACE_WAIT_SERVO4,       // 等待舵机上升
     PLACE_MOVE_TO_ZERO,      // 回零
     PLACE_WAIT_ZERO,         // 等待回零
     PLACE_COMPLETE           // 完成状态
@@ -66,9 +74,9 @@ typedef struct {
 
 extern MotorControl motor_ctrl;
 
-void Place_Chess();
+// void Place_Chess();
 
-void control_t(uint32_t x_talget,uint32_t y_target);
+// void control_t(uint32_t x_talget,uint32_t y_target);
 
 void control_to_zero(void);
 
@@ -82,7 +90,7 @@ uint8_t Place_Chess_IsBusy(void);
 
 void control_t_start(uint32_t x_distance, uint32_t y_distance);
 
-void control_t_process(uint32_t x_distance, uint32_t y_distance);
+void control_t_process();
 
 
 // 检查控制是否完成

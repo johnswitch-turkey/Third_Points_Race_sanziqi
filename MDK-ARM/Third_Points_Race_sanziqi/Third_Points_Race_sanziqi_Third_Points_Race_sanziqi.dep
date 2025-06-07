@@ -1,7 +1,7 @@
 Dependencies for Project 'Third_Points_Race_sanziqi', Target 'Third_Points_Race_sanziqi': (DO NOT MODIFY !)
 CompilerVersion: 6140000::V6.14::ARMCLANG
-F (startup_stm32f401xc.s)(0x68429D12)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto -c-gdwarf-3-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 531" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F401xC SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o third_points_race_sanziqi/startup_stm32f401xc.o)
-F (../Core/Src/main.c)(0x68429DDF)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/main.o -MD)
+F (startup_stm32f401xc.s)(0x68437B21)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto -c-gdwarf-3-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 531" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F401xC SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o third_points_race_sanziqi/startup_stm32f401xc.o)
+F (../Core/Src/main.c)(0x68438D9F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/main.o -MD)
 I (..\Core\Inc\main.h)(0x683EC0F7)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
 I (..\Core\Inc\stm32f4xx_hal_conf.h)(0x68298DFE)
@@ -44,8 +44,8 @@ I (..\USER\Devices\Emm_V5.h)(0x6835AAA9)
 I (..\USER\bsp\sys.h)(0x6835AAA9)
 I (..\USER\bsp\bsp_dwt.h)(0x6835AAA9)
 I (..\USER\H\system.h)(0x683FBDC4)
-I (..\USER\H\control.h)(0x6842A07B)
-I (..\USER\H\decode.h)(0x68402531)
+I (..\USER\H\control.h)(0x6843847B)
+I (..\USER\H\decode.h)(0x6842FB4A)
 F (../Core/Src/gpio.c)(0x683EC0F5)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/gpio.o -MD)
 I (..\Core\Inc\gpio.h)(0x6828172D)
 I (..\Core\Inc\main.h)(0x683EC0F7)
@@ -112,7 +112,7 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
-F (../Core/Src/tim.c)(0x683EC0F6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/tim.o -MD)
+F (../Core/Src/tim.c)(0x6842ED26)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/tim.o -MD)
 I (..\Core\Inc\tim.h)(0x683EC0F6)
 I (..\Core\Inc\main.h)(0x683EC0F7)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
@@ -145,7 +145,7 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
-F (../Core/Src/usart.c)(0x68400F18)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/usart.o -MD)
+F (../Core/Src/usart.c)(0x68430185)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/usart.o -MD)
 I (..\Core\Inc\usart.h)(0x68400CF4)
 I (..\Core\Inc\main.h)(0x683EC0F7)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
@@ -180,7 +180,9 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
 I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\string.h)(0x5ED60BE4)
 I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x5ED60BE4)
-I (..\USER\H\decode.h)(0x68402531)
+I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5ED60BE4)
+I (..\USER\H\decode.h)(0x6842FB4A)
+I (..\USER\H\control.h)(0x6843847B)
 F (../Core/Src/stm32f4xx_it.c)(0x68400F19)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/stm32f4xx_it.o -MD)
 I (..\Core\Inc\main.h)(0x683EC0F7)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
@@ -773,8 +775,8 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
-F (..\USER\C\control.c)(0x6842A078)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/control.o -MD)
-I (..\USER\H\control.h)(0x6842A07B)
+F (..\USER\C\control.c)(0x68438D2A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/control.o -MD)
+I (..\USER\H\control.h)(0x6843847B)
 I (..\Core\Inc\main.h)(0x683EC0F7)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
 I (..\Core\Inc\stm32f4xx_hal_conf.h)(0x68298DFE)
@@ -809,11 +811,11 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
 I (..\USER\H\Control_logic.h)(0x683FB145)
 I (..\Core\Inc\tim.h)(0x683EC0F6)
 I (..\Core\Inc\gpio.h)(0x6828172D)
-I (..\USER\H\chess_task.h)(0x683ED4B5)
+I (..\USER\H\chess_task.h)(0x6842FD0E)
 I (..\USER\H\stepper_motor.h)(0x6835ADAC)
-I (..\USER\H\servo.h)(0x683DB2D9)
+I (..\USER\H\servo.h)(0x68438B97)
 I (..\Core\Inc\usart.h)(0x68400CF4)
-I (..\USER\H\decode.h)(0x68402531)
+I (..\USER\H\decode.h)(0x6842FB4A)
 I (..\USER\H\system.h)(0x683FBDC4)
 I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x5ED60BE4)
 I (..\USER\bsp\bsp_uart.h)(0x6835AAA9)
@@ -855,8 +857,8 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
-F (..\USER\C\chess_task.c)(0x68429FB4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/chess_task.o -MD)
-I (..\USER\H\chess_task.h)(0x683ED4B5)
+F (..\USER\C\chess_task.c)(0x6842EA84)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/chess_task.o -MD)
+I (..\USER\H\chess_task.h)(0x6842FD0E)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
 I (..\Core\Inc\stm32f4xx_hal_conf.h)(0x68298DFE)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x68281720)
@@ -887,7 +889,7 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
-F (..\USER\C\control_logic.c)(0x683FBD89)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/control_logic.o -MD)
+F (..\USER\C\control_logic.c)(0x6842E63F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/control_logic.o -MD)
 I (..\USER\H\Control_logic.h)(0x683FB145)
 I (..\Core\Inc\main.h)(0x683EC0F7)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
@@ -922,14 +924,14 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
 I (..\Core\Inc\tim.h)(0x683EC0F6)
 I (..\Core\Inc\gpio.h)(0x6828172D)
-I (..\USER\H\Chess_Task.h)(0x683ED4B5)
+I (..\USER\H\Chess_Task.h)(0x6842FD0E)
 I (..\USER\H\stepper_motor.h)(0x6835ADAC)
-I (..\USER\H\control.h)(0x6842A07B)
+I (..\USER\H\control.h)(0x6843847B)
 I (..\Core\Inc\usart.h)(0x68400CF4)
 I (..\USER\H\system.h)(0x683FBDC4)
 F (..\USER\C\uart.c)(0x683FB147)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/uart.o -MD)
 F (..\USER\C\servo.c)(0x683DB2E5)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/servo.o -MD)
-I (..\USER\H\servo.h)(0x683DB2D9)
+I (..\USER\H\servo.h)(0x68438B97)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
 I (..\Core\Inc\stm32f4xx_hal_conf.h)(0x68298DFE)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x68281720)
@@ -960,45 +962,45 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
-F (..\USER\C\decode.c)(0x684040DD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/decode.o -MD)
-I (..\USER\H\decode.h)(0x68402531)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
-I (..\Core\Inc\stm32f4xx_hal_conf.h)(0x68298DFE)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x68281720)
-I (..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x6828171E)
-I (..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f401xc.h)(0x6828171E)
-I (..\Drivers\CMSIS\Include\core_cm4.h)(0x6828171E)
+F (..\USER\C\decode.c)(0x6842FBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/decode.o -MD)
+I (..\USER\H\decode.h)(0x6842FB4A)
 I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5ED60BE4)
-I (..\Drivers\CMSIS\Include\cmsis_version.h)(0x6828171E)
-I (..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x6828171E)
-I (..\Drivers\CMSIS\Include\cmsis_armclang.h)(0x6828171E)
-I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x6828171E)
-I (..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x6828171E)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x68281720)
-I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5ED60BE4)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio_ex.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_exti.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
 I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\time.h)(0x5ED60BE4)
 I (..\Core\Inc\usart.h)(0x68400CF4)
 I (..\Core\Inc\main.h)(0x683EC0F7)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x68281720)
+I (..\Core\Inc\stm32f4xx_hal_conf.h)(0x68298DFE)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x68281720)
+I (..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x6828171E)
+I (..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f401xc.h)(0x6828171E)
+I (..\Drivers\CMSIS\Include\core_cm4.h)(0x6828171E)
+I (..\Drivers\CMSIS\Include\cmsis_version.h)(0x6828171E)
+I (..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x6828171E)
+I (..\Drivers\CMSIS\Include\cmsis_armclang.h)(0x6828171E)
+I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x6828171E)
+I (..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x6828171E)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x68281720)
+I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5ED60BE4)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio_ex.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_exti.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
+I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
 I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x5ED60BE4)
 I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\string.h)(0x5ED60BE4)
 I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5ED60BE4)
-F (..\USER\C\system.c)(0x683FF19B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/system.o -MD)
+F (..\USER\C\system.c)(0x6843847B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/system.o -MD)
 I (..\USER\H\system.h)(0x683FBDC4)
 I (..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x6828171E)
 I (..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f401xc.h)(0x6828171E)
@@ -1030,15 +1032,15 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x68281720)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x68281720)
-I (..\USER\H\control.h)(0x6842A07B)
+I (..\USER\H\control.h)(0x6843847B)
 I (..\Core\Inc\main.h)(0x683EC0F7)
-F (..\USER\H\control.h)(0x6842A07B)()
+F (..\USER\H\control.h)(0x6843847B)()
 F (..\USER\H\stepper_motor.h)(0x6835ADAC)()
-F (..\USER\H\chess_task.h)(0x683ED4B5)()
+F (..\USER\H\chess_task.h)(0x6842FD0E)()
 F (..\USER\H\control_logic.h)(0x683FB145)()
 F (..\USER\H\uart.h)(0x68303337)()
-F (..\USER\H\servo.h)(0x683DB2D9)()
-F (..\USER\H\decode.h)(0x68402531)()
+F (..\USER\H\servo.h)(0x68438B97)()
+F (..\USER\H\decode.h)(0x6842FB4A)()
 F (..\USER\H\system.h)(0x683FBDC4)()
 F (..\USER\bsp\bsp_dwt.c)(0x6835AAA9)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../USER/C -I ../USER/H -I ../USER/bsp -I ../USER/Devices-I./RTE/_Third_Points_Race_sanziqi-ID:/Programs/Keil_v5/ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-ID:/Programs/Keil_v5/ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F401xC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F401xC-o third_points_race_sanziqi/bsp_dwt.o -MD)
 I (..\USER\bsp\bsp_dwt.h)(0x6835AAA9)

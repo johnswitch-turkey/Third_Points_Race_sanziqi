@@ -11,8 +11,8 @@
 #define MAGNET_GPIO_PIN GPIO_PIN_4
 #define MAGNET_GPIO_PORT GPIOA
 
-#define SERVO_UP_POSITION  260
-#define SERVO_DOWN_POSITION 150
+#define SERVO_UP_POSITION  2000
+#define SERVO_DOWN_POSITION 2450
 
 void Servo_Down();
 void Servo_Up();

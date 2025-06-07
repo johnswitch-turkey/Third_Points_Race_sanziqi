@@ -12,7 +12,7 @@ typedef struct{
   }Task_State;
 
 
-extern volatile uint8_t rotate_flag;
+
 
 // void Chess_Task(void);
 

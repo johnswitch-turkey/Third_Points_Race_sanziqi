@@ -18,7 +18,5 @@ volatile Task_State task_state = {
 };
 
 
-// 特殊任务标志位
-volatile uint8_t rotate_flag = 0;  // 是否需要45度旋转标志，用于第三个任务
 
 

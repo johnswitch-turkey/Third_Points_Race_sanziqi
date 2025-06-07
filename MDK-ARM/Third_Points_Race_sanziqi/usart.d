@@ -32,4 +32,5 @@ third_points_race_sanziqi/usart.o: ..\Core\Src\usart.c \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  ..\USER\H\decode.h
+  D:\Programs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  ..\USER\H\decode.h ..\USER\H\control.h ..\Core\Inc\main.h

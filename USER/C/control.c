@@ -38,11 +38,11 @@ uint32_t current_time;
 Position board_position[9]=
 {
 
-    {6500, 11500}, {9000, 9000}, {11500, 6500},  //1 , 2 , 3
+    {4500, 9500}, {7200, 7200}, {9500, 5000},  //1 , 2 , 3
     // ��1��
-    {9000, 14000}, {11500, 11500}, {14000, 9000},  //4 , 5 , 6
+    {7000, 12000}, {9500, 9500}, {142000, 7000},  //4 , 5 , 6
     // ��2��
-    {11000, 16000}, {11150, 13650}, {16000, 11000}   //7 , 8 , 9
+    {9300, 14300}, {11800, 9300}, {14100, 9600}   //7 , 8 , 9
 };
 
 Position board_rotate_position[9]=
@@ -81,6 +81,10 @@ Position start;
 Position end;
 
 
+uint8_t rotate_flag = 0; // 旋转标志
+uint8_t cheat_flag = 0; // 作弊标志
+
+
 PlaceControl place_ctrl = {
     .state = PLACE_IDLE,
     .is_busy = 0
@@ -89,17 +93,23 @@ PlaceControl place_ctrl = {
 // 启动放置棋子任务 // 放在UART函数回调中
 void Place_Chess_Start(uint8_t Chess_ID, uint8_t Board_ID)
 {
-    if (Chess_ID == 0 || Chess_ID > 10 || Board_ID == 0 || Board_ID > 10) {
+    if (Chess_ID < 0 || Chess_ID > 10 || Board_ID < 0 || Board_ID > 10) {
         return;
     }
     
-    uint8_t chessIndex = Chess_ID;
-    uint8_t boardIndex = Board_ID;
+    chessIndex = Chess_ID;
+    boardIndex = Board_ID;
     
     place_ctrl.chess_id = Chess_ID;
     place_ctrl.board_id = Board_ID;
     place_ctrl.start_pos = chess_position[chessIndex];
     place_ctrl.end_pos = rotate_flag ? board_rotate_position[boardIndex] : board_position[boardIndex];
+
+    if (cheat_flag  == 1) {
+        place_ctrl.start_pos = board_position[chessIndex]; // 作弊时放置在原点
+        place_ctrl.end_pos = board_position[boardIndex];
+    }
+    
     place_ctrl.state = PLACE_MOVE_TO_CHESS;
     place_ctrl.is_busy = 1;
     
@@ -138,7 +148,7 @@ void Place_Chess_Process(void)
             break;
             
         case PLACE_WAIT_SERVO1:
-            if(current_time - place_ctrl.delay_start >= 1000) {
+            if(current_time - place_ctrl.delay_start >= 700) {
                 place_ctrl.state = PLACE_MAGNET_ON;
             }
             break;
@@ -150,7 +160,7 @@ void Place_Chess_Process(void)
             break;
             
         case PLACE_WAIT_MAGNET:
-            if(current_time - place_ctrl.delay_start >= 1000) {
+            if(current_time - place_ctrl.delay_start >= 700) {
                 place_ctrl.state = PLACE_SERVO_UP1;
             }
             break;
@@ -162,7 +172,7 @@ void Place_Chess_Process(void)
             break;
         
         case PLACE_WAIT_SERVO2:
-            if(current_time - place_ctrl.delay_start >= 1000) {
+            if(current_time - place_ctrl.delay_start >= 700) {
 //                control_t_start(place_ctrl.end_pos.x, place_ctrl.end_pos.y);
                 place_ctrl.state = PLACE_MOVE_TO_BOARD;
             }
@@ -188,7 +198,7 @@ void Place_Chess_Process(void)
             break;
 
         case PLACE_WAIT_SERVO3:
-            if(current_time - place_ctrl.delay_start >= 1000) {
+            if(current_time - place_ctrl.delay_start >= 700) {
                 place_ctrl.state = PLACE_MAGNET_OFF;
             }
             break;
@@ -196,15 +206,27 @@ void Place_Chess_Process(void)
         case PLACE_MAGNET_OFF: 
             Magnet_Off();
             place_ctrl.delay_start = current_time;
-            place_ctrl.state = PLACE_SERVO_UP2;
+            place_ctrl.state = PLACE_WAIT_MAGNET2;
+            break;
+
+        case PLACE_WAIT_MAGNET2:
+            if(current_time - place_ctrl.delay_start >= 700) {
+                place_ctrl.state = PLACE_SERVO_UP2;
+            }
             break;
 
         case PLACE_SERVO_UP2:
             Servo_Up();
             place_ctrl.delay_start = current_time;
-            place_ctrl.state = PLACE_MOVE_TO_ZERO;
+            place_ctrl.state = PLACE_WAIT_SERVO4;
             break;
-        
+
+        case PLACE_WAIT_SERVO4:
+            if(current_time - place_ctrl.delay_start >= 700) {
+                place_ctrl.state = PLACE_MOVE_TO_ZERO;
+            }
+            break;
+
         case PLACE_MOVE_TO_ZERO:
             control_t_start(0, 0);
             place_ctrl.delay_start = current_time;
@@ -231,6 +253,101 @@ uint8_t Place_Chess_IsBusy(void)
 {
     return place_ctrl.is_busy;
 }
+
+
+
+// 定义控制结构体实例
+MotorControl motor_ctrl = {
+    .state = MOTOR_IDLE,
+    .is_complete = 1
+};
+
+
+// 启动电机移动任务 
+// 在下棋progress中间被调用
+// 更改系统状态为SYSTEM_MOVING
+// 只有在放置棋子过程中才能启动电机移动
+void control_t_start(uint32_t x_distance, uint32_t y_distance)
+{
+    if(robot.system_state != SYSTEM_PLACING) {
+        // 只有在放置棋子过程中才能启动电机移动
+        return;
+    }
+    
+    motor_ctrl.x_target = x_distance;
+    motor_ctrl.y_target = y_distance;
+    robot.system_state = SYSTEM_MOVING;
+		motor_ctrl.is_busy = 1;
+		motor_ctrl.state = MOTOR_IDLE;
+}
+
+// 非阻塞的控制函数
+void control_t_process()
+{
+    static uint32_t delay_count = 0;
+    current_time = HAL_GetTick();
+    
+    if(motor_ctrl.state == MOTOR_IDLE) {
+        motor_ctrl.state = MOTOR_SET_X1;
+        motor_ctrl.is_complete = 0;
+    }
+    
+    switch(motor_ctrl.state) {
+        case MOTOR_SET_X1:
+            Emm_V5_Pos_Control(1, 0, velocity, acc, motor_ctrl.x_target, raf, 0);
+            motor_ctrl.delay_start = current_time;
+            motor_ctrl.state = MOTOR_WAIT_X1;
+            break;
+            
+        case MOTOR_WAIT_X1:
+            if(current_time - motor_ctrl.delay_start >= 1500) {
+                motor_ctrl.state = MOTOR_SET_X2;
+            }
+            break;
+            
+        case MOTOR_SET_X2:
+            Emm_V5_Pos_Control(2, 1, velocity, acc, motor_ctrl.y_target, raf, 0);
+            motor_ctrl.delay_start = current_time;
+            motor_ctrl.state = MOTOR_WAIT_X2;
+            break;
+            
+        case MOTOR_WAIT_X2:
+            if(current_time - motor_ctrl.delay_start >= 1500) {
+                motor_ctrl.state = MOTOR_COMPLETE;
+                motor_ctrl.is_complete = 1;
+            }
+            break;
+        case MOTOR_COMPLETE:
+        case MOTOR_IDLE:
+            // 完成状态，等待下一个任务
+            motor_ctrl.is_busy = 0;
+						robot.system_state = SYSTEM_PLACING;
+            break;
+        default:
+            break;
+    }
+}
+
+// 检查控制是否完成
+uint8_t is_control_complete(void)
+{
+    return motor_ctrl.is_complete;
+}
+
+uint8_t control_t_is_busy(void)
+{
+    return motor_ctrl.is_busy;
+}
+
+//void control_to_zero(void)
+//{
+
+//   control_t_process(0, 0);
+
+//}
+
+
+
 
 
 
@@ -280,102 +397,6 @@ uint8_t Place_Chess_IsBusy(void)
 //    }
 
 // }
-
-// 定义控制结构体实例
-MotorControl motor_ctrl = {
-    .state = MOTOR_IDLE,
-    .is_complete = 1
-};
-
-
-// 启动电机移动任务 
-// 在下棋progress中间被调用
-// 更改系统状态为SYSTEM_MOVING
-// 只有在放置棋子过程中才能启动电机移动
-void control_t_start(uint32_t x_distance, uint32_t y_distance)
-{
-    if(robot.system_state != SYSTEM_PLACING) {
-        // 只有在放置棋子过程中才能启动电机移动
-        return;
-    }
-    
-    motor_ctrl.x_target = x_distance;
-    motor_ctrl.y_target = y_distance;
-    robot.system_state = SYSTEM_MOVING;
-		motor_ctrl.is_busy = 1;
-}
-
-// 非阻塞的控制函数
-void control_t_process(uint32_t x_distance, uint32_t y_distance)
-{
-    static uint32_t delay_count = 0;
-    current_time = HAL_GetTick();
-    
-    if(motor_ctrl.state == MOTOR_IDLE) {
-        motor_ctrl.x_target = x_distance;
-        motor_ctrl.y_target = y_distance;
-        motor_ctrl.state = MOTOR_SET_X1;
-        motor_ctrl.is_complete = 0;
-    }
-    
-    switch(motor_ctrl.state) {
-        case MOTOR_SET_X1:
-            Emm_V5_Pos_Control(1, 0, velocity, acc, x_distance, raf, 0);
-            motor_ctrl.delay_start = current_time;
-            motor_ctrl.state = MOTOR_WAIT_X1;
-            break;
-            
-        case MOTOR_WAIT_X1:
-            if(current_time - motor_ctrl.delay_start >= 2000) {
-                motor_ctrl.state = MOTOR_SET_X2;
-            }
-            break;
-            
-        case MOTOR_SET_X2:
-            Emm_V5_Pos_Control(2, 0, velocity, acc, x_distance, raf, 0);
-            motor_ctrl.delay_start = current_time;
-            motor_ctrl.state = MOTOR_WAIT_X2;
-            break;
-            
-        case MOTOR_WAIT_X2:
-            if(current_time - motor_ctrl.delay_start >= 2000) {
-                motor_ctrl.state = MOTOR_COMPLETE;
-                motor_ctrl.is_complete = 1;
-            }
-            break;
-        case MOTOR_COMPLETE:
-        case MOTOR_IDLE:
-            // 完成状态，等待下一个任务
-            motor_ctrl.is_busy = 0;
-						robot.system_state = SYSTEM_PLACING;
-            break;
-        default:
-            break;
-    }
-}
-
-// 检查控制是否完成
-uint8_t is_control_complete(void)
-{
-    return motor_ctrl.is_complete;
-}
-
-uint8_t control_t_is_busy(void)
-{
-    return motor_ctrl.is_busy;
-}
-
-void control_to_zero(void)
-{
-
-   control_t_process(0, 0);
-
-}
-
-
-
-
-
 
 
 

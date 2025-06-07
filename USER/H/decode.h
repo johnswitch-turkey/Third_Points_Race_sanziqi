@@ -1,39 +1,38 @@
-#ifndef __DECODE_H__
-#define __DECODE_H__
+#ifndef __DECODE_H
+#define __DECODE_H
 
-#include "stm32f4xx_hal.h"
+#include <stdint.h>
 
-/* —— 命令队列配置 —— */
-#define CMD_QUEUE_SIZE  16    // 最多缓存 16 条命令，可按需调整
+// 定义队列最大容量
+#define CMD_QUEUE_SIZE 32
 
+// 命令结构体
 typedef struct {
-    uint8_t src;
-    uint8_t dst;
+    uint8_t piece_id;    // 棋子ID (0-4)
+    uint8_t board_pos;   // 棋盘位置 (0-8)
+    uint8_t need_rotate; // 是否需要旋转 (0/1)
+    uint8_t is_cheating; // 是否作弊 (0/1)
 } Command_t;
 
-/* 环形队列本体 */
-// 用于下棋的队列，每个元素（结构体）有2个数据，前者是盘外棋子的序号，后者是小方格的序号
-static Command_t deploy_cmd_queue[CMD_QUEUE_SIZE];
-// 用于防作弊的队列，每个元素同样有2个数据，且都是小方格的序号
-static Command_t recover_cmd_queue[CMD_QUEUE_SIZE];
+// 外部声明的测试统计变量
+extern uint8_t parse_count;
+extern uint8_t parse_count_all;
+extern uint8_t parse_count_err;
+extern uint8_t parse_count_full;
 
-/* 队列操作用的索引与计数 */
-extern uint8_t deploy_enqueue_flag ;    
-    
-static volatile uint8_t deploy_cmd_head  ;   // 下一个要从队列取出的索引
-static volatile uint8_t deploy_cmd_tail  ;   // 下一个要写入队列的位置
-static volatile uint8_t deploy_cmd_count ;  // 队列中当前元素个数（0～CMD_QUEUE_SIZE）
+/**
+ * @brief 从队列取出一条命令
+ * @param out_cmd 输出参数，用于存储取出的命令
+ * @return 1:成功 0:队列为空
+ */
+uint8_t dequeue_command(Command_t *out_cmd);
 
+/**
+ * @brief 解析从树莓派发来的单行命令
+ * @param cmd 要解析的命令字符串
+ * @note 格式: "deploy from 2 to 7，1，0"
+ *        分别表示: 棋子ID, 棋盘位置, 是否需要旋转, 是否作弊
+ */
+void parse_command(char *cmd);
 
-extern uint8_t recover_enqueue_flag ;   
-
-static volatile uint8_t recover_cmd_head  ;   // 下一个要从队列取出的索引
-static volatile uint8_t recover_cmd_tail  ;   // 下一个要写入队列的位置
-static volatile uint8_t recover_cmd_count  ;  // 队列中当前元素个数（0～CMD_QUEUE_SIZE）
-
-
-
-void parse_command(char *cmd);    //解析数据
-static uint8_t enqueue_command(uint8_t src, uint8_t dst);     //将一组数据放入数组
-uint8_t dequeue_command(Command_t *out_cmd, uint8_t is_deploy);      //从数组中取出一组数据
-#endif
+#endif /* __DECODE_H */
